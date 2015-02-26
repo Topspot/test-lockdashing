@@ -23,8 +23,6 @@ class HomeController extends BaseController {
 //    }
 
     public function getIndex() {
-//      echo "asdasd"; exit();
-//        $validator = Validator::make($data = Input::all(), Brand::$rules);
 
         $data = Input::all();
         if(isset($data['keyword']) ||  isset($data['namebrands'])){
@@ -34,17 +32,15 @@ class HomeController extends BaseController {
     ->where('brand_id', '=',$namebrands)
     ->where('title', 'LIKE', "%$keyword%")
     ->paginate(9);
-//                  $products = Product::where('brand_id', '=',$namebrands)
-//   ->where('title', 'LIKE', "%$keyword%")
-//    ->paginate(9);
-//            print_r($products);
-//            exit();
 
             return View::make('home.index', compact('products','data'));
 
         }else{
-             $brands = Brand::all();
+           $brands = Brand::all();
            Session::set('brands', $brands);
+           $populars = Popular::all();
+           Session::set('populars', $populars);
+           
             $products = Product::paginate(9);
             return View::make('home.index', compact('products'));
 

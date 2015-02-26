@@ -46,15 +46,6 @@
                                 <li>
                                     <img src="images/slide1.jpg" />
                                 </li>
-                                <!--                            <li>
-                                                              <img src="images/slide2.jpg" />
-                                                            </li>
-                                                            <li>
-                                                              <img src="images/slide3.jpg" />
-                                                            </li>
-                                                            <li>
-                                                              <img src="images/slide4.jpg" />
-                                                            </li>-->
                             </ul>
                         </div>
                     </div>
@@ -125,7 +116,18 @@
                 <div class="wall">
                     <div class="sidebars">
                         <div class="categories-text">Popular categories</div>
-                        <a href="#" target="_blank">
+                          <?php $populars=Session::get('populars') ?>
+                         @if(count($populars))   
+                         @foreach($populars as $popular)  
+                          <a href="#" target="_blank">
+                            <div class="categories-box">
+                               <?php  $categoy_data =Category::find($popular->category_id); ?>
+                                <div class="cat-name"><span style="font-weight: bold; font-size:13px;">{{{$categoy_data->name}}} </span>{{{$popular->name}}}</div>
+                                <div class="cat-price">${{{$popular->price}}}</div>
+                            </div></a>
+                          @endforeach
+                         @endif
+<!--                        <a href="#" target="_blank">
                             <div class="categories-box">
                                 <div class="cat-name"><span style="font-weight: bold; font-size:13px;">WOMEN</span> SHOES STARTS FROM</div>
                                 <div class="cat-price">$50</div>
@@ -144,7 +146,7 @@
                             <div class="categories-box">
                                 <div class="cat-name"><span style="font-weight: bold; font-size:13px;">MEN</span> SUITS STARTS FROM</div>
                                 <div class="cat-price">$250</div>
-                            </div></a>
+                            </div></a>-->
                         <div class="categories-text">What's hot</div>
                         <a href="#" target="_blank">
                             <div class="hot-items">

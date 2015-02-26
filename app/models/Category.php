@@ -2,16 +2,19 @@
 
 class Category extends \Eloquent {
 
-	// Add your validation rules here
-	public static $rules = [
-		// 'title' => 'required'
-	];
+    // Add your validation rules here
+    public static $rules = [
+            // 'title' => 'required'
+    ];
+    // Don't forget to fill this array
+    protected $fillable = ['name'];
 
-	// Don't forget to fill this array
-	protected $fillable = ['name'];
-        
-               public function product(){
+    public function product() {
         return $this->belongsTo('Product');
-         }
+    }
+
+    public function popular() {
+        return $this->belongsTo('Popular');
+    }
 
 }

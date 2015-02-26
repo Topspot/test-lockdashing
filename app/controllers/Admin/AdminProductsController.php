@@ -9,7 +9,16 @@ class AdminProductsController extends \BaseController {
 	 */
 	public function index()
 	{
-		$products = Product::paginate(10);
+           $current_user_id = App::make('authenticator')->getLoggedUser()->getId();
+//           print_r($current_user_id);exit();
+           if($current_user_id == 1){
+               $products = Product::orderBy('created_at', 'desc')->paginate(10);
+           }else{
+                $products = Product::where('user_id', '=', $current_user_id)
+                ->orderBy('created_at', 'desc')->paginate(10);
+           }
+          
+		
 
 		return View::make('admin.products.index', compact('products'));
 	}
@@ -142,6 +151,18 @@ class AdminProductsController extends \BaseController {
              $data['likes']=$product->likes;
            $product->update($data);
 //                     print_r($product->likes);exit();
+        }
+        /**
+	 * Increment like for the product.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function featured()
+        { 
+
+             $products = Product::all();
+             return View::make('admin.products.featured', compact('products'));
         }
 
 }

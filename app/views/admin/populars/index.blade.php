@@ -1,7 +1,6 @@
 @extends('laravel-authentication-acl::admin.layouts.base')
 
 @section('content')
-
 @if(Session::get('message'))
 @if(!empty(Session::get('message')))
 
@@ -11,10 +10,9 @@
 </div>
 @endif
 @endif
-<h1>Products</h1>
-
-{{ link_to_route('admin.products.create', 'Create new Product',array(), array('class' => 'btn btn-inverse')) }}
-<button class="btn btn-danger" onclick="multipleDelete('products');"><i class="icon-trash bigger-130"></i> Multiple Delete</button>
+<h1>Popular Categories</h1>
+{{ link_to_route('admin.populars.create', 'Create new Popular Category',array(), array('class' => 'btn btn-inverse')) }}
+<button class="btn btn-danger" onclick="multipleDelete('populars');"><i class="icon-trash bigger-130"></i> Multiple Delete</button>
 <div class="row">
         <div class="col-xs-12">
                 <div class="table-responsive">
@@ -27,71 +25,48 @@
                                                                 <span class="lbl"></span>
                                                         </label>
                                                 </th>
-                                                <th>Title</th>
-                                                <th>Subtitle</th>
-                                                <th>Likes</th>
-                                                <th>Stars</th>
+                                                <th>Name</th>
                                                 <th>Price</th>
-                                                <th>Image</th>
-                                                <th>Brand</th>
                                                 <th>Category</th>
-                                                <th>Featured Item</th>
-                                                <th>Top Selling</th>
                                                 <th></th>
                                         </tr>
                                 </thead>
 
                                 <tbody class="product-table">
-                                    @if(count($products))
-                                     @foreach($products as $product)                                    
-                                     <tr data-id="<?php echo $product->id ?>">
+                                    @if(count($populars))
+                                     @foreach($populars as $popular)
+                                        <tr data-id="<?php echo $popular->id ?>">
                                                 <td class="center">
                                                         <label>
-                                                                <input type="checkbox" class="ace checkbox1"/>
+                                                                <input type="checkbox" class="ace checkbox1" />
                                                                 <span class="lbl"></span>
                                                         </label>
                                                 </td>
 
                                                 <td>
 <!--                                                        <a href="#">app.com</a>-->
-                                                        {{{ $product->title }}}
+                                                        {{{ $popular->name }}}
                                                 </td>
-                                                <td>{{{ $product->subtitle }}}</td>
-                                                <td>{{{ $product->likes }}}</td>
-                                                <td>{{{ $product->star }}}</td>
-                                                <td>{{{ $product->price }}}</td>
-                                                <td><img src="<?php echo $product->image; ?>" width="50px" height="50px" alt="product"></td>
-                                                <td>{{{ $product->brand_id }}}</td>
-                                                <td>{{{ $product->category_id }}}</td>
-                                                <td class="center">
-                                                        <label>
-                                                                <input type="checkbox" class="ace"/>
-                                                                <span class="lbl"></span>
-                                                        </label>
+                                                <td>
+<!--                                                        <a href="#">app.com</a>-->
+                                                        {{{ $popular->price }}}
                                                 </td>
-                                                <td class="center">
-                                                        <label>
-                                                                <input type="checkbox" class="ace"/>
-                                                                <span class="lbl"></span>
-                                                        </label>
+                                                <td>
+<!--                                                        <a href="#">app.com</a>-->
+                                                <?php $categoy_data =Category::find($popular->category_id); ?>
+                                                        {{{ $categoy_data->name }}}
                                                 </td>
 
                                                 <td>
                                                         <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
                                                                 
-                                                                <a class="green" href="/admin/products/<?php echo $product->id ?>/edit">
+                                                                <a class="green" href="/admin/populars/<?php echo $popular->id ?>/edit">
                                                                         <i class="icon-pencil bigger-130"></i>
                                                                 </a>
 
-                                                                <a class="red" href="#" onclick="openModal('products','<?php echo $product->id; ?>','<?php echo $product->title; ?>');">
+                                                                <a class="red" href="#" onclick="openModal('populars','<?php echo $popular->id; ?>','<?php echo $popular->name; ?>');">
                                                                         <i class="icon-trash bigger-130"></i>
                                                                 </a>
-<!--                                                                         <button class="red" onclick="openModal('Products','<?php echo $product->id; ?>','<?php echo $product->title; ?>');">
-                                                                            <i class="icon-trash bigger-130"></i>   
-                                                                        </button>-->
-                                                      
-<!--                                                            {{ Form::open(array('route' => array('admin.products.destroy', $product->id), 'method' => 'delete', 'class' => 'destroy')) }}
-                                                                   {{ Form::submit('Delete') }}-->
                                                         </div>
 
                                                         <div class="visible-xs visible-sm hidden-md hidden-lg">
@@ -128,15 +103,25 @@
                                                                 </div>
                                                         </div>
                                                 </td>
-                                        </tr>                                  
+                                        </tr>       
                                            @endforeach
-                                        @endif
-                                        
+                                        @endif                                        
                                 </tbody>
                         </table>
-                    <?php echo $products->links(); ?>
                 </div>
         </div>
 </div>
+<!--@if(count($populars))
+    <ul>
+    @foreach($populars as $popular)
+        <li>
+            {{ link_to_route('admin.populars.edit', $popular->name, array($popular->id)) }}
+            {{ Form::open(array('route' => array('admin.populars.destroy', $popular->id), 'method' => 'delete', 'class' => 'destroy')) }}
+            {{ Form::submit('Delete') }}
+            {{ Form::close() }}
+        </li>
+    @endforeach
+    </ul>
+@endif-->
 
 @stop

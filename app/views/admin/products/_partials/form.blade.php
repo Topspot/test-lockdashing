@@ -1,3 +1,4 @@
+{{ Form::hidden('user_id',App::make('authenticator')->getLoggedUser()->getId()) }}
 <div class="form-group" style="height: 40px;">
     <label class="col-sm-3 control-label no-padding-right" > Brands </label>
 

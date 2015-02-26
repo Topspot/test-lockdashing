@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class RemoveBrandIdFromUser extends Migration {
+class AddColoumToUserTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,9 +12,9 @@ class RemoveBrandIdFromUser extends Migration {
 	 */
 	public function up()
 	{
-		Schema::table('users', function($table)
+		Schema::table('products', function($table)
                 {
-                    $table->dropColumn('brand_id');
+                    $table->integer('user_id');
                 });
 	}
 
@@ -25,10 +25,10 @@ class RemoveBrandIdFromUser extends Migration {
 	 */
 	public function down()
 	{
-		Schema::table('users', function(Blueprint $table)
-		{
-			$table->integer('brand_id');
-		});
+		Schema::table('products', function($table)
+                {
+                    $table->dropColumn('user_id');
+                });
 	}
 
 }

@@ -2,6 +2,9 @@
 
 class AdminCategoriesController extends \BaseController {
 
+         public function __construct() {
+        $this->beforeFilter('category', ['only' => ['index', 'create', 'store', 'edit', 'update', 'destroy']]);
+    }
 	/**
 	 * Display a listing of categories
 	 *

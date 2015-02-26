@@ -15,5 +15,8 @@ class Product extends \Eloquent {
         public function brands(){
             return $this->hasMany('Brand');
         }
+        public function users(){
+            return $this->hasMany('User');
+        }
 
 }

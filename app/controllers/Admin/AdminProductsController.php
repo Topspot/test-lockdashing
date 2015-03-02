@@ -153,16 +153,42 @@ class AdminProductsController extends \BaseController {
 //                     print_r($product->likes);exit();
         }
         /**
-	 * Increment like for the product.
+	 * Add featured Items for the product.
 	 *
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function featured()
-        { 
-
-             $products = Product::all();
-             return View::make('admin.products.featured', compact('products'));
+	public function featuredItems($id)
+        {    
+            $product = Product::find($id);
+            
+            $check=$_GET['check'];
+        if($check == 'yes'){
+             $data['featured']=$product->featured=1;
+        }else{
+             $data['featured']=$product->featured=0;
+        }
+             
+             $product->update($data);
+        }
+        /**
+	 * Add featured Items for the product.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function topSell($id)
+        {    
+            $product = Product::find($id);
+            
+            $check=$_GET['check'];
+        if($check == 'yes'){
+             $data['topsell']=$product->topsell=1;
+        }else{
+             $data['topsell']=$product->topsell=0;
+        }
+             
+             $product->update($data);
         }
 
 }

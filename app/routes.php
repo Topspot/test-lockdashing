@@ -14,6 +14,8 @@ Route::group(array('prefix' => 'admin'), function(){
  Route::resource('products', 'AdminProductsController', array('except' => array('show')));
  Route::get('products/destroy/{id}', 'AdminProductsController@destroy');
  Route::get('products/addLikes/{id}', 'AdminProductsController@addLikes');
+ Route::get('products/featuredItems/{id}', 'AdminProductsController@featuredItems');
+ Route::get('products/topSell/{id}', 'AdminProductsController@topSell');
  Route::resource('categories', 'AdminCategoriesController', array('except' => array('show')));
   Route::get('categories/destroy/{id}', 'AdminCategoriesController@destroy');
  Route::resource('brands', 'AdminBrandsController', array('except' => array('show')));

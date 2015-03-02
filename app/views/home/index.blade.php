@@ -30,7 +30,6 @@
     <div style="margin-bottom: 20px; border-top: 2px solid #ede8dd; border-bottom: 2px solid #fff; width: 100%; height: 0px; float: left;"></div>
     <?php $count=0; ?>
     @endif
-    
     @endforeach
 
 @endif

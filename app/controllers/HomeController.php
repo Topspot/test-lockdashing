@@ -36,12 +36,16 @@ class HomeController extends BaseController {
             return View::make('home.index', compact('products','data'));
 
         }else{
-           $brands = Brand::all();
-           Session::set('brands', $brands);
-           $populars = Popular::all();
-           Session::set('populars', $populars);
+            $brands = Brand::all();
+            Session::set('brands', $brands);
+            $populars = Popular::all();
+            Session::set('populars', $populars);
+            $featured = Product::where('featured', '=', 1) ->orderBy('created_at', 'desc')->take(4)->get();
+            Session::set('featured', $featured);
+            $topsell = Product::find(1)->where('topsell', '=', 1) ->orderBy('created_at', 'desc')->get();
+            Session::set('topsell', $topsell);
            
-            $products = Product::paginate(9);
+            $products = Product::where('featured', '!=',1)->orderBy('created_at', 'desc')->paginate(9);
             return View::make('home.index', compact('products'));
 
         }

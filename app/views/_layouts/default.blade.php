@@ -80,22 +80,15 @@
                             <!--<div class="top-brands"> Top selling</div>-->
                         </div>
                         <div class="featured-box">
+                            <?php $featured=Session::get('featured') ?>
+                             @if(count($featured))
+                             @foreach($featured as $feat)  
                             <div class="image-text">
-                                <div class="featured-image"></div>
-                                <div class="featured-text"> Gucci Shoes</div>
+                                <div class="featured-image"> <img src="<?php echo $feat->image; ?>" alt="image"></div>
+                                <div class="featured-text"> {{{$feat->title}}}</div>
                             </div>
-                            <div class="image-text">
-                                <div class="featured-image"></div>
-                                <div class="featured-text"> Nike Sports Shoes</div>
-                            </div>
-                            <div class="image-text">
-                                <div class="featured-image"></div>
-                                <div class="featured-text"> Nike Golf Cap</div>
-                            </div>
-                            <div class="image-text">
-                                <div class="featured-image"></div>
-                                <div class="featured-text"> Nike Golf Cap</div>
-                            </div>
+                             @endforeach
+                             @endif
                         </div>
                     </div>
                     <div class="second-featured">
@@ -103,10 +96,20 @@
                             <div class="selling-text">Top Sellings Brands</div>                            
                         </div>
                         <div class="featured-box">
+                               <div class="top-selling-text">
+                                <div class="featured-image-dark"></div>
+                                <div class="brands-text"> </div>
+                            </div> 
+<!--                            <?php $topsell=Session::get('topsell') ?>
+                             @if(count($topsell))
+                             @foreach($topsell as $top) 
                             <div class="top-selling-text">
                                 <div class="featured-image-dark"></div>
-                                <div class="brands-text"> view our brands</div>
-                            </div>                            
+                                <div class="brands-text"> </div>
+                            </div>   
+                             
+                              @endforeach
+                             @endif-->
                         </div>
                     </div>
                 </div>                    
@@ -127,26 +130,7 @@
                             </div></a>
                           @endforeach
                          @endif
-<!--                        <a href="#" target="_blank">
-                            <div class="categories-box">
-                                <div class="cat-name"><span style="font-weight: bold; font-size:13px;">WOMEN</span> SHOES STARTS FROM</div>
-                                <div class="cat-price">$50</div>
-                            </div></a>
-                        <a href="#" target="_blank">
-                            <div class="categories-box">
-                                <div class="cat-name"><span style="font-weight: bold; font-size:13px;">MEN</span> DRESS SHOES STARTS FROM</div>
-                                <div class="cat-price">$170</div>
-                            </div></a>
-                        <a href="#" target="_blank">
-                            <div class="categories-box">
-                                <div class="cat-name"><span style="font-weight: bold; font-size:13px;">KIDS</span> ACCESSORIES STARTS FROM</div>
-                                <div class="cat-price">$10</div>
-                            </div></a>
-                        <a href="#" target="_blank">
-                            <div class="categories-box">
-                                <div class="cat-name"><span style="font-weight: bold; font-size:13px;">MEN</span> SUITS STARTS FROM</div>
-                                <div class="cat-price">$250</div>
-                            </div></a>-->
+
                         <div class="categories-text">What's hot</div>
                         <a href="#" target="_blank">
                             <div class="hot-items">

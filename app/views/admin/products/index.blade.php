@@ -65,13 +65,13 @@
                                                 <td>{{{ $product->category_id }}}</td>
                                                 <td class="center">
                                                         <label>
-                                                                <input type="checkbox" class="ace"/>
+                                                            <input type="checkbox" class="ace featured-item" <?php echo ($product->featured==1 ? 'checked' : '');?>/>
                                                                 <span class="lbl"></span>
                                                         </label>
                                                 </td>
                                                 <td class="center">
                                                         <label>
-                                                                <input type="checkbox" class="ace"/>
+                                                                <input type="checkbox" class="ace top-selling" <?php echo ($product->topsell==1 ? 'checked' : '');?>/>
                                                                 <span class="lbl"></span>
                                                         </label>
                                                 </td>

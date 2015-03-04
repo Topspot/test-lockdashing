@@ -12,6 +12,7 @@
 */
 Route::group(array('prefix' => 'admin'), function(){
  Route::resource('products', 'AdminProductsController', array('except' => array('show')));
+ Route::post('products/currentActiveMenu', 'AdminProductsController@currentActiveMenu');
  Route::get('products/destroy/{id}', 'AdminProductsController@destroy');
  Route::get('products/addLikes/{id}', 'AdminProductsController@addLikes');
  Route::get('products/featuredItems/{id}', 'AdminProductsController@featuredItems');
@@ -25,3 +26,4 @@ Route::group(array('prefix' => 'admin'), function(){
  });
 //Route::get('/', array('as' => 'home', 'uses' => 'ProductsController@getIndex'));
 Route::get('/', array('as' => 'home', 'uses' => 'HomeController@getIndex'));
+  

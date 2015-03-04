@@ -1,7 +1,6 @@
 <?php
 
 class HomeController extends BaseController {
-
     /*
       |--------------------------------------------------------------------------
       | Default Home Controller
@@ -15,43 +14,33 @@ class HomeController extends BaseController {
       |
      */
 
-//    public function front() {
-//        $products = Product::all();
-//
-//        return View::make('home.front', compact('products'));
-////		return View::make('hello');
-//    }
+   
 
     public function getIndex() {
 
         $data = Input::all();
-        if(isset($data['keyword']) ||  isset($data['namebrands'])){
-                 $namebrands  = $data['namebrands'];
-                 $keyword  = $data['keyword'];
-                 $products=DB::table('products')
-    ->where('brand_id', '=',$namebrands)
-    ->where('title', 'LIKE', "%$keyword%")
-    ->paginate(9);
+        if (isset($data['keyword']) || isset($data['namebrands'])) {
+            $namebrands = $data['namebrands'];
+            $keyword = $data['keyword'];
+            $products = DB::table('products')
+                    ->where('brand_id', '=', $namebrands)
+                    ->where('title', 'LIKE', "%$keyword%")
+                    ->paginate(9);
 
-            return View::make('home.index', compact('products','data'));
-
-        }else{
+            return View::make('home.index', compact('products', 'data'));
+        } else {
             $brands = Brand::all();
             Session::set('brands', $brands);
             $populars = Popular::all();
             Session::set('populars', $populars);
-            $featured = Product::where('featured', '=', 1) ->orderBy('created_at', 'desc')->take(4)->get();
+            $featured = Product::where('featured', '=', 1)->orderBy('created_at', 'desc')->take(4)->get();
             Session::set('featured', $featured);
-            $topsell = Product::find(1)->where('topsell', '=', 1) ->orderBy('created_at', 'desc')->get();
+            $topsell = Product::find(1)->where('topsell', '=', 1)->orderBy('created_at', 'desc')->get();
             Session::set('topsell', $topsell);
-           
-            $products = Product::where('featured', '!=',1)->orderBy('created_at', 'desc')->paginate(9);
-            return View::make('home.index', compact('products'));
 
+            $products = Product::where('featured', '!=', 1)->orderBy('created_at', 'desc')->paginate(9);
+            return View::make('home.index', compact('products'));
         }
-      
-      
-        
     }
 
 }

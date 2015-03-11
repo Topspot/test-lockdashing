@@ -17,12 +17,18 @@ Route::group(array('prefix' => 'admin'), function(){
  Route::get('products/addLikes/{id}', 'AdminProductsController@addLikes');
  Route::get('products/featuredItems/{id}', 'AdminProductsController@featuredItems');
  Route::get('products/topSell/{id}', 'AdminProductsController@topSell');
+ 
  Route::resource('categories', 'AdminCategoriesController', array('except' => array('show')));
   Route::get('categories/destroy/{id}', 'AdminCategoriesController@destroy');
+  
  Route::resource('brands', 'AdminBrandsController', array('except' => array('show')));
    Route::get('brands/destroy/{id}', 'AdminBrandsController@destroy');
+   
  Route::resource('populars', 'AdminPopularsController', array('except' => array('show')));   
   Route::get('populars/destroy/{id}', 'AdminPopularsController@destroy');
+  
+ Route::resource('subcategories', 'AdminSubCategoriesController', array('except' => array('show')));   
+  Route::get('subcategories/destroy/{id}', 'AdminSubCategoriesController@destroy');
  });
 //Route::get('/', array('as' => 'home', 'uses' => 'ProductsController@getIndex'));
 Route::get('/', array('as' => 'home', 'uses' => 'HomeController@getIndex'));

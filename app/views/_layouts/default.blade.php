@@ -73,6 +73,7 @@
             <div style="clear: both;"></div>  
             <div class="main-featured-item">
                 <div class="wall">
+        
                     <div class="first-featured">
                         <div class="top-featured">
                             <div class="feat-text">Featured Items</div>
@@ -80,18 +81,65 @@
                             <!--<div class="top-brands"> Top selling</div>-->
                         </div>
                         <div class="featured-box">
-                            <?php $featured=Session::get('featured') ?>
+                                        <div>
+			<div class="list_carousel">
+                            <a id="prev2" class="prev" href="#">
+                                &lt;</a>
+				<ul id="foo2">
+                                      <?php $featured=Session::get('featured') ?>
                              @if(count($featured))
                              @foreach($featured as $feat)  
-                            <div class="image-text">
-                                <div class="featured-image"> <img src="<?php echo $feat->image; ?>" alt="image"></div>
-                                <div class="featured-text"> {{{$feat->title}}}</div>
-                            </div>
-                             @endforeach
+					<li>
+                                    <div class="featured-image"><a href="#"> <img src="<?php echo $feat->image; ?>" alt="image"></a></div>
+                                    <div class="featured-text"> <a href="#" style="text-decoration: none; color:#000;">{{{$feat->title}}}</a></div>
+                           
+                                            </li>
+                                         @endforeach
                              @endif
+                             @if(count($featured))
+                             @foreach($featured as $feat)  
+					<li>
+                                            <div class="featured-image"><a href="#"> <img src="<?php echo $feat->image; ?>" alt="image"></a></div>
+                                               <div class="featured-text"> <a href="#" style="text-decoration: none; color:#000;">{{{$feat->title}}}</a></div>
+                           
+                                            </li>
+                                         @endforeach
+                             @endif
+                             @if(count($featured))
+                             @foreach($featured as $feat)  
+					<li>
+                                      <div class="featured-image"><a href="#"> <img src="<?php echo $feat->image; ?>" alt="image"></a></div>
+                                                         <div class="featured-text"> <a href="#" style="text-decoration: none; color:#000;">{{{$feat->title}}}</a></div>
+                           
+                                            </li>
+                                         @endforeach
+                             @endif
+<!--					<li>a</li>
+					<li>r</li>
+					<li>o</li>
+					<li>u</li>
+					<li>F</li>
+					<li>r</li>
+					<li>e</li>
+					<li>d</li>
+					<li>S</li>
+					<li>e</li>
+					<li>l</li>
+					<li> </li>-->
+				</ul>
+                            <div class="clearfix"></div>
+                            
+							
+				
+			</div>
+                    <a id="next2" class="next" href="#">&gt;</a>
+                    </div>
+                          
+                           
+                            
                         </div>
                     </div>
-                    <div class="second-featured">
+<!--                    <div class="second-featured">
                         <div class="top-featured">
                             <div class="selling-text">Top Sellings Brands</div>                            
                         </div>
@@ -100,7 +148,7 @@
                                 <div class="featured-image-dark"></div>
                                 <div class="brands-text"> </div>
                             </div> 
-<!--                            <?php $topsell=Session::get('topsell') ?>
+                            <?php $topsell=Session::get('topsell') ?>
                              @if(count($topsell))
                              @foreach($topsell as $top) 
                             <div class="top-selling-text">
@@ -109,9 +157,9 @@
                             </div>   
                              
                               @endforeach
-                             @endif-->
+                             @endif
                         </div>
-                    </div>
+                    </div>-->
                 </div>                    
             </div>  
             <div style="clear: both;"></div>   
@@ -241,5 +289,10 @@
     </body>
 </html>
 {{ HTML::script('js/jquery.js') }}
+{{ HTML::script('js/jquery.carouFredSel-6.2.1-packed.js') }}
+{{ HTML::script('js/jquery.mousewheel.min.js') }}
+{{ HTML::script('js/jquery.touchSwipe.min.js') }}
+{{ HTML::script('js/jquery.transit.min.js') }}
+{{ HTML::script('js/jquery.ba-throttle-debounce.min.js') }}
 {{ HTML::script('js/jquery.flexslider.js') }}
 {{ HTML::script('js/myscript.js') }}

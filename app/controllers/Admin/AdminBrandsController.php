@@ -12,7 +12,7 @@ class AdminBrandsController extends \BaseController {
      * @return Response
      */
     public function index() {
-        $brands = Brand::paginate(10);
+        $brands = Brand::orderBy('created_at', 'desc')->paginate(10);
 
         return View::make('admin.brands.index', compact('brands'));
     }
@@ -38,6 +38,13 @@ class AdminBrandsController extends \BaseController {
             return Redirect::back()->withErrors($validator)->withInput();
         }
 
+         if (Input::hasFile('image')) {
+            $file = Input::file('image');
+            $destinationPath = public_path() . '/img/brands/';
+            $filename = str_random(6) . '_' . $file->getClientOriginalName();
+            $uploadSuccess = $file->move($destinationPath, $filename);
+            $data["image"] = '/img/brands/' . $filename;
+        }
         Brand::create($data);
         Session::set('message', "Brand is successfully added.");
         return Redirect::route('admin.brands.index');
@@ -81,6 +88,16 @@ class AdminBrandsController extends \BaseController {
 
         if ($validator->fails()) {
             return Redirect::back()->withErrors($validator)->withInput();
+        }
+        
+        if (Input::hasFile('image')) {
+            $file = Input::file('image');
+            $destinationPath = public_path() . '/img/brands/';
+            $filename = str_random(6) . '_' . $file->getClientOriginalName();
+            $uploadSuccess = $file->move($destinationPath, $filename);
+            $data["image"] = '/img/brands/' . $filename;
+        } else {
+            unset($data['image']);
         }
         Session::set('message', "Brand is updated successfully.");
         $brand->update($data);

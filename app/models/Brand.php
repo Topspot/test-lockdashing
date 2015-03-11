@@ -8,7 +8,7 @@ class Brand extends \Eloquent {
 	];
 
 	// Don't forget to fill this array
-	protected $fillable = ['name'];
+	protected $fillable = ['name','image'];
             
         public function product(){
         return $this->belongsTo('Product');

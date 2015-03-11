@@ -154,7 +154,7 @@ padding-top: 20px;
      margin-right: 4%;
 }
 .first-featured{
-    width: 78%;
+    width: 100%;
     float: left;
 }
 .second-featured{
@@ -794,5 +794,94 @@ padding: 10px 0;
     box-shadow: inset 0px 0px 8px rgba(0,0,0, .5), 0px 1px 0px rgba(255,255,255, .8);
     color: #fff;
     text-shadow: 0px 0px 3px rgba(0,0,0, .5);
+}
+
+.list_carousel {
+/*        background-color: #ccc;
+        margin: 0 0 30px 0px;*/
+        width: 95.5%;
+        float: left;
+}
+.list_carousel ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: block;
+}
+.list_carousel li {
+        font-size: 40px;
+        color: #999;
+        text-align: center;
+/*        background-color: #eee;
+        border: 5px solid #999;*/
+        width: 162px;
+        height: 180px;
+        padding: 0;
+        margin: 8px;
+        display: block;
+        float: left;
+}
+.list_carousel.responsive {
+        width: auto;
+        margin-left: 0;
+}
+.clearfix {
+        float: none;
+        clear: both;
+}
+.prev {
+      
+         padding: 10px;
+         background-color: #a52e18;
+             border-radius: 28px;   
+         -o-border-radius: 28px;  
+         -webkit-border-radius: 28px;
+         text-decoration:none; 
+         display: block;
+         width: 13px;
+         height: 16px;
+         cursor: pointer;
+         color: rgba(255,255,255,0.8); 
+         margin-top: 72px;
+
+  float: left;
+        margin-left: 10px;
+        font-weight: bold;
+         text-align: center;
+}
+.next {
+           padding: 10px;
+         background-color: #a52e18;
+             border-radius: 28px;   
+         -o-border-radius: 28px;  
+         -webkit-border-radius: 28px;
+         text-decoration:none; 
+         display: block;
+         width: 13px;
+         height: 16px;
+         cursor: pointer;
+         color: rgba(255,255,255,0.8); 
+        float: right;
+        margin-right: 10px;
+        font-weight: bold;
+         margin-top: 72px;
+         text-align: center;
+}
+.pager {
+        float: left;
+        width: 300px;
+        text-align: center;
+}
+.pager a {
+        margin: 0 5px;
+        text-decoration: none;
+}
+.pager a.selected {
+        text-decoration: underline;
+}
+.timer {
+        background-color: #999;
+        height: 6px;
+        width: 0px;
 }
 

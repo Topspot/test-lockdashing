@@ -1,4 +1,20 @@
  jQuery(document).ready(function() {
+    $(function() {
+            //	Scrolled by user interaction
+            $('#foo2').carouFredSel({
+                    auto: true,
+                    prev: '#prev2',
+                    next: '#next2',
+//					pagination: "#pager2",
+                    mousewheel: true,
+                    swipe: {
+                            onMouse: true,
+                            onTouch: true
+                    }
+            });
+
+
+    });
         // Can also be used with $(document).ready()
  $('.option-heart').click(function(e) {  // to show the created folder
         var id = $(this).data('bind');

@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddTwoColoumToProductsTable extends Migration {
+class AddSubCatedoryIdToProducats extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -14,7 +14,7 @@ class AddTwoColoumToProductsTable extends Migration {
 	{
 		Schema::table('products', function($table)
                 {
-                    $table->boolean('featured');
+                    $table->integer('subcategory_id');
                    
                 });
 	}
@@ -28,7 +28,7 @@ class AddTwoColoumToProductsTable extends Migration {
 	{
 		Schema::table('products', function($table)
                 {
-                    $table->dropColumn('featured');
+                    $table->dropColumn('subcategory_id');
                    
                 });
 	}

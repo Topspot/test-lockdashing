@@ -35,8 +35,8 @@ class HomeController extends BaseController {
             Session::set('populars', $populars);
             $featured = Product::where('featured', '=', 1)->orderBy('created_at', 'desc')->take(4)->get();
             Session::set('featured', $featured);
-            $topsell = Product::find(1)->where('topsell', '=', 1)->orderBy('created_at', 'desc')->get();
-            Session::set('topsell', $topsell);
+//            $topsell = Product::find(1)->where('topsell', '=', 1)->orderBy('created_at', 'desc')->get();
+//            Session::set('topsell', $topsell);
 
             $products = Product::where('featured', '!=', 1)->orderBy('created_at', 'desc')->paginate(9);
             return View::make('home.index', compact('products'));

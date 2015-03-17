@@ -11,7 +11,15 @@
     <label class="col-sm-3 control-label no-padding-right" > Category </label>
 
     <div class="col-sm-9">
-        {{ Form::select('category_id', Category::lists('name', 'id'),null,array('class' => 'col-xs-10 col-sm-5')) }}
+        {{ Form::select('category_id', Category::lists('name', 'id'),null,array('class' => 'col-xs-10 col-sm-5 category-list')) }}
+       
+    </div>
+</div>
+<div class="form-group" style="height: 40px;">
+    <label class="col-sm-3 control-label no-padding-right" > Sub category </label>
+
+    <div class="col-sm-9">
+        {{ Form::select('subcategory_id', array(),null,array('class' => 'col-xs-10 col-sm-5 subcategory-list')) }}
        
     </div>
 </div>
@@ -68,6 +76,7 @@
     </div>
   
 </div>
+{{ Form::hidden('featured',0,array('class' => 'col-xs-10 col-sm-5')) }}
 <?php if(isset($product)){?>
 <div class="form-group">
     <label class="col-sm-3 control-label no-padding-right" >  </label>

@@ -35,8 +35,9 @@
                                                 <th>Image</th>
                                                 <th>Brand</th>
                                                 <th>Category</th>
+                                                <th>Sub Category</th>
                                                 <th>Featured Item</th>
-                                                <th>Top Selling</th>
+                      
                                                 <th></th>
                                         </tr>
                                 </thead>
@@ -61,20 +62,23 @@
                                                 <td>{{{ $product->star }}}</td>
                                                 <td>{{{ $product->price }}}</td>
                                                 <td><img src="<?php echo $product->image; ?>" width="50px" height="50px" alt="product"></td>
-                                                <td>{{{ $product->brand_id }}}</td>
-                                                <td>{{{ $product->category_id }}}</td>
+                                                <?php $brand_data =Brand::find($product->brand_id); ?>
+                                                <td>{{{ $brand_data->name }}}</td>
+                                                 <?php $categoy_data =Category::find($product->category_id); ?>
+                                                <td>{{{ $categoy_data->name }}}</td>
+                                                 <?php $subcategoy_data =SubCategory::find($product->subcategory_id); ?>
+                                               @if(count($subcategoy_data))
+                                                <td>{{{ $subcategoy_data->name }}}</td>
+                                                @else
+                                                 <td>{{{ $product->subcategory_id }}}</td>
+                                                @endif
                                                 <td class="center">
                                                         <label>
                                                             <input type="checkbox" class="ace featured-item" <?php echo ($product->featured==1 ? 'checked' : '');?>/>
                                                                 <span class="lbl"></span>
                                                         </label>
                                                 </td>
-                                                <td class="center">
-                                                        <label>
-                                                                <input type="checkbox" class="ace top-selling" <?php echo ($product->topsell==1 ? 'checked' : '');?>/>
-                                                                <span class="lbl"></span>
-                                                        </label>
-                                                </td>
+                               
 
                                                 <td>
                                                         <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">

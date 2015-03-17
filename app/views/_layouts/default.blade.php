@@ -114,18 +114,6 @@
                                             </li>
                                          @endforeach
                              @endif
-<!--					<li>a</li>
-					<li>r</li>
-					<li>o</li>
-					<li>u</li>
-					<li>F</li>
-					<li>r</li>
-					<li>e</li>
-					<li>d</li>
-					<li>S</li>
-					<li>e</li>
-					<li>l</li>
-					<li> </li>-->
 				</ul>
                             <div class="clearfix"></div>
                             
@@ -139,27 +127,6 @@
                             
                         </div>
                     </div>
-<!--                    <div class="second-featured">
-                        <div class="top-featured">
-                            <div class="selling-text">Top Sellings Brands</div>                            
-                        </div>
-                        <div class="featured-box">
-                               <div class="top-selling-text">
-                                <div class="featured-image-dark"></div>
-                                <div class="brands-text"> </div>
-                            </div> 
-                            <?php $topsell=Session::get('topsell') ?>
-                             @if(count($topsell))
-                             @foreach($topsell as $top) 
-                            <div class="top-selling-text">
-                                <div class="featured-image-dark"></div>
-                                <div class="brands-text"> </div>
-                            </div>   
-                             
-                              @endforeach
-                             @endif
-                        </div>
-                    </div>-->
                 </div>                    
             </div>  
             <div style="clear: both;"></div>   

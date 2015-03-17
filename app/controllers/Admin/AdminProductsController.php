@@ -169,25 +169,18 @@ class AdminProductsController extends \BaseController {
      * @param  int  $id
      * @return Response
      */
-    public function topSell($id) {
-        $product = Product::find($id);
-
-        $check = $_GET['check'];
-        if ($check == 'yes') {
-            $data['topsell'] = $product->topsell = 1;
-        } else {
-            $data['topsell'] = $product->topsell = 0;
-        }
-
-        $product->update($data);
-    }
-
-//    public function currentActiveMenu() {
-////      print_r($_POST['url']);exit;
-//        $url=$_POST['url'];
-//        Session::set('currentActiveMenu', $url);
-//        print_r($url);
-//       
+//    public function topSell($id) {
+//        $product = Product::find($id);
+//
+//        $check = $_GET['check'];
+//        if ($check == 'yes') {
+//            $data['topsell'] = $product->topsell = 1;
+//        } else {
+//            $data['topsell'] = $product->topsell = 0;
+//        }
+//
+//        $product->update($data);
 //    }
+
 
 }

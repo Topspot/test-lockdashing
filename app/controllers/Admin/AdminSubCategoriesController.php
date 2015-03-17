@@ -103,5 +103,30 @@ class AdminSubCategoriesController extends \BaseController {
 
 		return Redirect::route('admin.subcategories.index');
 	}
+        
+            /**
+     * Get sub categories fromc ategory ID.
+     *
+     * @param  int  $id
+     * @return Response
+     */
+    public function getSubCategories($id) {
+  
+        $product_id=$_GET['product_id'];
+        $subcat = Subcategory::where('category_id', '=', $id)->get();
+        $products = Product::where('id', '=', $product_id)->get();
+        return array($subcat,$products);
+//              print_r($subcat);exit;
+//              
+//
+//        $check = $_GET['check'];
+//        if ($check == 'yes') {
+//            $data['topsell'] = $product->topsell = 1;
+//        } else {
+//            $data['topsell'] = $product->topsell = 0;
+//        }
+//
+//        $product->update($data);
+    }
 
 }

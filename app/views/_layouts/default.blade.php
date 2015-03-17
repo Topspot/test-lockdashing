@@ -140,7 +140,8 @@
                           <a href="#" target="_blank">
                             <div class="categories-box">
                                <?php  $categoy_data =Category::find($popular->category_id); ?>
-                                <div class="cat-name"><span style="font-weight: bold; font-size:13px;">{{{$categoy_data->name}}} </span>{{{$popular->name}}}</div>
+                               <?php  $subcategoy_data =SubCategory::find($popular->subcategory_id); ?>
+                                <div class="cat-name"><span style="font-weight: bold; font-size:13px;">{{{$categoy_data->name}}} </span>{{{$subcategoy_data->name}}} {{{$popular->name}}}</div>
                                 <div class="cat-price">${{{$popular->price}}}</div>
                             </div></a>
                           @endforeach

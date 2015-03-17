@@ -30,6 +30,7 @@ Route::group(array('prefix' => 'admin'), function(){
  Route::resource('subcategories', 'AdminSubCategoriesController', array('except' => array('show')));   
   Route::get('subcategories/destroy/{id}', 'AdminSubCategoriesController@destroy');
    Route::get('subcategories/getSubCategories/{id}', 'AdminSubCategoriesController@getSubCategories');
+   Route::get('subcategories/getSubCategoriesPopular/{id}', 'AdminSubCategoriesController@getSubCategoriesPopular');
  });
 //Route::get('/', array('as' => 'home', 'uses' => 'ProductsController@getIndex'));
 Route::get('/', array('as' => 'home', 'uses' => 'HomeController@getIndex'));

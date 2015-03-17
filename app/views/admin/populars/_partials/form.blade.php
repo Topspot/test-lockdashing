@@ -18,8 +18,16 @@
     <label class="col-sm-3 control-label no-padding-right" > Category </label>
 
     <div class="col-sm-9">
-        {{ Form::select('category_id', Category::lists('name', 'id'),null,array('class' => 'col-xs-10 col-sm-5')) }}
+        {{ Form::select('category_id', Category::lists('name', 'id'),null,array('class' => 'col-xs-10 col-sm-5 category-list')) }}
        
+    </div>
+</div>
+<div class="form-group" style="height: 40px;">
+    <label class="col-sm-3 control-label no-padding-right" > Sub Category </label>
+
+    <div class="col-sm-9">
+        {{ Form::select('subcategory_id', array(),null,array('class' => 'col-xs-10 col-sm-5 subcategory-list')) }}
+      
     </div>
 </div>
 <div class="clearfix form-actions" style=" height: 100px;">

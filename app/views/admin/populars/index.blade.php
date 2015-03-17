@@ -28,6 +28,7 @@
                                                 <th>Name</th>
                                                 <th>Price</th>
                                                 <th>Category</th>
+                                                <th>Sub Category</th>
                                                 <th></th>
                                         </tr>
                                 </thead>
@@ -44,17 +45,22 @@
                                                 </td>
 
                                                 <td>
-<!--                                                        <a href="#">app.com</a>-->
+
                                                         {{{ $popular->name }}}
                                                 </td>
                                                 <td>
-<!--                                                        <a href="#">app.com</a>-->
+
                                                         {{{ $popular->price }}}
                                                 </td>
                                                 <td>
-<!--                                                        <a href="#">app.com</a>-->
                                                 <?php $categoy_data =Category::find($popular->category_id); ?>
                                                         {{{ $categoy_data->name }}}
+                                                       
+                                                </td>
+                                                <td>
+
+                                                <?php $subcategoy_data = SubCategory::find($popular->subcategory_id); ?>
+                                                        {{{ $subcategoy_data->name }}}
                                                 </td>
 
                                                 <td>
@@ -111,17 +117,5 @@
                 </div>
         </div>
 </div>
-<!--@if(count($populars))
-    <ul>
-    @foreach($populars as $popular)
-        <li>
-            {{ link_to_route('admin.populars.edit', $popular->name, array($popular->id)) }}
-            {{ Form::open(array('route' => array('admin.populars.destroy', $popular->id), 'method' => 'delete', 'class' => 'destroy')) }}
-            {{ Form::submit('Delete') }}
-            {{ Form::close() }}
-        </li>
-    @endforeach
-    </ul>
-@endif-->
 
 @stop

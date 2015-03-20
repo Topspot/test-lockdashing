@@ -28,10 +28,12 @@ Route::group(array('prefix' => 'admin'), function(){
   Route::get('populars/destroy/{id}', 'AdminPopularsController@destroy');
   
  Route::resource('subcategories', 'AdminSubCategoriesController', array('except' => array('show')));   
-  Route::get('subcategories/destroy/{id}', 'AdminSubCategoriesController@destroy');
-   Route::get('subcategories/getSubCategories/{id}', 'AdminSubCategoriesController@getSubCategories');
-   Route::get('subcategories/getSubCategoriesPopular/{id}', 'AdminSubCategoriesController@getSubCategoriesPopular');
+ Route::get('subcategories/destroy/{id}', 'AdminSubCategoriesController@destroy');
+ Route::get('subcategories/getSubCategories/{id}', 'AdminSubCategoriesController@getSubCategories');
+ Route::get('subcategories/getSubCategoriesPopular/{id}', 'AdminSubCategoriesController@getSubCategoriesPopular');
  });
 //Route::get('/', array('as' => 'home', 'uses' => 'ProductsController@getIndex'));
 Route::get('/', array('as' => 'home', 'uses' => 'HomeController@getIndex'));
+Route::get('details/{id}', array('as' => 'details', 'uses' => 'HomeController@getDetails'));
+Route::get('cart', array('as' => 'cart', 'uses' => 'HomeController@getCart'));
   

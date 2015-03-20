@@ -5,12 +5,15 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title>My Awesome Blog</title>
 
+        
         {{ HTML::style('css/style.css') }}
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
         {{ HTML::style('css/normalize.css') }}
         {{ HTML::style('css/flexslider.css') }}
         {{ HTML::style('css/banner.css') }}
+        {{ HTML::style('css/cloud-zoom.css') }}
+       
 
         <!--[if lt IE 9]>
         <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -41,10 +44,10 @@
                         <div class="flexslider">
                             <ul class="slides">
                                 <li>
-                                    <img src="images/slide1.jpg" />
+                                    <img src="/images/slide1.jpg" />
                                 </li>
                                 <li>
-                                    <img src="images/slide1.jpg" />
+                                    <img src="/images/slide1.jpg" />
                                 </li>
                             </ul>
                         </div>
@@ -253,10 +256,14 @@
                 </div>
             </div>
         </div><!--wrapper end-->
+        <div class="demo">
+	
 
+</div>
     </body>
 </html>
 {{ HTML::script('js/jquery.js') }}
+<!--{{ HTML::script('jquery.js') }}-->
 {{ HTML::script('js/jquery.carouFredSel-6.2.1-packed.js') }}
 {{ HTML::script('js/jquery.mousewheel.min.js') }}
 {{ HTML::script('js/jquery.touchSwipe.min.js') }}
@@ -264,3 +271,4 @@
 {{ HTML::script('js/jquery.ba-throttle-debounce.min.js') }}
 {{ HTML::script('js/jquery.flexslider.js') }}
 {{ HTML::script('js/myscript.js') }}
+{{ HTML::script('js/cloud-zoom.1.0.2.min.js') }}

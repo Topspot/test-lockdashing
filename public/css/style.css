@@ -694,9 +694,9 @@ padding: 10px 0;
       float: left;
       text-align: center;
        margin-left: 4px;
-           border-radius: 28px;
-    -o-border-radius: 28px;
-    -webkit-border-radius: 28px;
+           border-radius: 28px !important;
+    -o-border-radius: 28px !important;
+    -webkit-border-radius: 28px !important;
     border: 7px solid #421f1f;
     padding-top: 7px;
 }
@@ -885,3 +885,134 @@ padding: 10px 0;
         width: 0px;
 }
 
+.main-title{
+    font-size: 27px;
+    font-weight: bold;
+}
+.main-subtitle{
+     font-size: 17px;
+     margin-bottom: 10px;
+    /*font-weight: bold;*/
+}
+.main-price{
+    font-size: 30px;
+    font-weight: bold;
+    color: #801d0a;
+    float: left;
+    width: 30%;
+}
+
+.paypal_btn{
+	display: inline-block;
+	font-family: inherit;
+	font-size: 17px;
+	font-weight: bold;
+	color: #fff;
+	text-align: center;
+	padding: 13px 18px;
+	margin: 0 0 10px 0px;
+	background: #801d0a;
+	border: 0;
+	cursor: pointer;
+	outline: none;
+float: right;	
+}
+.paypal_btn:hover{ background: #b55e33; }
+.cloud-zoom-loading{
+    display: none;
+}
+        
+        
+ .CSSTableGenerator {
+	margin:0px;padding:0px;
+	width:100%;
+
+}.CSSTableGenerator table{
+    border-collapse: collapse;
+        border-spacing: 0;
+	width:100%;
+	height:100%;
+	margin:0px;padding:0px;
+}.CSSTableGenerator tr:last-child td:last-child {
+	-moz-border-radius-bottomright:0px;
+	-webkit-border-bottom-right-radius:0px;
+	border-bottom-right-radius:0px;
+}
+.CSSTableGenerator table tr:first-child td:first-child {
+	-moz-border-radius-topleft:0px;
+	-webkit-border-top-left-radius:0px;
+	border-top-left-radius:0px;
+}
+.CSSTableGenerator table tr:first-child td:last-child {
+	-moz-border-radius-topright:0px;
+	-webkit-border-top-right-radius:0px;
+	border-top-right-radius:0px;
+}.CSSTableGenerator tr:last-child td:first-child{
+	-moz-border-radius-bottomleft:0px;
+	-webkit-border-bottom-left-radius:0px;
+	border-bottom-left-radius:0px;
+}.CSSTableGenerator tr:hover td{
+	
+}
+.CSSTableGenerator tr:nth-child(odd){ background-color:#e5e5e5; }
+.CSSTableGenerator tr:nth-child(even)    { background-color:#ffffff; }.CSSTableGenerator td{
+	vertical-align:middle;
+	
+	
+	border:1px solid #000000;
+	border-width:0px 1px 1px 0px;
+	text-align:left;
+	padding:7px;
+	font-size:10px;
+	font-family:Arial;
+	font-weight:normal;
+	color:#000000;
+}.CSSTableGenerator tr:last-child td{
+	border-width:0px 1px 0px 0px;
+}.CSSTableGenerator tr td:last-child{
+	border-width:0px 0px 1px 0px;
+}.CSSTableGenerator tr:last-child td:last-child{
+	border-width:0px 0px 0px 0px;
+}
+.CSSTableGenerator tr:first-child td{
+		background:-o-linear-gradient(bottom, #cccccc 5%, #b2b2b2 100%);	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #cccccc), color-stop(1, #b2b2b2) );
+	background:-moz-linear-gradient( center top, #cccccc 5%, #b2b2b2 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#cccccc", endColorstr="#b2b2b2");	background: -o-linear-gradient(top,#cccccc,b2b2b2);
+
+	background-color:#cccccc;
+	border:0px solid #000000;
+	text-align:center;
+	border-width:0px 0px 1px 1px;
+	font-size:14px;
+	font-family:Arial;
+	font-weight:bold;
+	color:#000000;
+}
+.CSSTableGenerator tr:first-child:hover td{
+	background:-o-linear-gradient(bottom, #cccccc 5%, #b2b2b2 100%);	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #cccccc), color-stop(1, #b2b2b2) );
+	background:-moz-linear-gradient( center top, #cccccc 5%, #b2b2b2 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#cccccc", endColorstr="#b2b2b2");	background: -o-linear-gradient(top,#cccccc,b2b2b2);
+
+	background-color:#cccccc;
+}
+.CSSTableGenerator tr:first-child td:first-child{
+	border-width:0px 0px 1px 0px;
+}
+.CSSTableGenerator tr:first-child td:last-child{
+	border-width:0px 0px 1px 1px;
+}       
+/*-----------------Product detail slider----------------*/
+
+.demo{margin:0 auto;width:600px;}
+.tickul li{line-height:24px;}
+/* zoom-section */
+.zoom-section{clear:both;margin-top:20px;}
+*html .zoom-section{display:inline;clear:both;}
+.zoom-desc{float:left;margin-left:10px;width:310px;margin-bottom:20px;}
+.zoom-small-image{border:4px solid #CCC;float:left;margin-bottom:20px;}
+.zoom-tiny-image{border:1px solid #CCC;margin:0px;}
+.zoom-tiny-image:hover{border:1px solid #C00;}
+/*
+.zoom-desc img{
+    width: 0%;
+}*/

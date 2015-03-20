@@ -14,8 +14,6 @@ class HomeController extends BaseController {
       |
      */
 
-   
-
     public function getIndex() {
 
         $data = Input::all();
@@ -35,12 +33,37 @@ class HomeController extends BaseController {
             Session::set('populars', $populars);
             $featured = Product::where('featured', '=', 1)->orderBy('created_at', 'desc')->take(4)->get();
             Session::set('featured', $featured);
-//            $topsell = Product::find(1)->where('topsell', '=', 1)->orderBy('created_at', 'desc')->get();
-//            Session::set('topsell', $topsell);
+
 
             $products = Product::where('featured', '!=', 1)->orderBy('created_at', 'desc')->paginate(9);
             return View::make('home.index', compact('products'));
         }
+    }
+
+    public function getDetails($id) {
+        $current_product = Product::find($id);
+        $brands = Brand::all();
+        Session::set('brands', $brands);
+        $populars = Popular::all();
+        Session::set('populars', $populars);
+        $featured = Product::where('featured', '=', 1)->orderBy('created_at', 'desc')->take(4)->get();
+        Session::set('featured', $featured);
+
+        $products = Product::where('featured', '!=', 1)->where('id', '!=', $id)->orderBy('created_at', 'desc')->take(6)->get();
+        return View::make('home.details', compact('products', 'current_product'));
+    }
+
+    public function getCart() {
+//        $current_product = Product::find($id);
+        $brands = Brand::all();
+        Session::set('brands', $brands);
+        $populars = Popular::all();
+        Session::set('populars', $populars);
+        $featured = Product::where('featured', '=', 1)->orderBy('created_at', 'desc')->take(4)->get();
+        Session::set('featured', $featured);
+
+        $products = Product::where('featured', '!=', 1)->orderBy('created_at', 'desc')->take(3)->get();
+        return View::make('home.details', compact('products'));
     }
 
 }

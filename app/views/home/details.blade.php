@@ -34,7 +34,20 @@
         </div>
         <p style="margin: 10px 0px; width: 100%">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' </p>
         <div>
-            <a href="/cart"> <button name="add to card" type="button" class="paypal_btn"><i class="fa fa-shopping-cart"></i> Add to cart</button></a>
+    <?php        if( null !== App::make('authenticator')->getLoggedUser()){
+//        print_r(App::make('authenticator')->getLoggedUser()->getLogin());
+   ?>
+            <a href="/cart/<?php echo $current_product->id; ?>"> <button name="add to card" type="button" class="paypal_btn"><i class="fa fa-shopping-cart"></i> Add to cart</button></a>
+            <?php
+    }else{
+        ?>
+           
+            <a href="/login"> <button name="add to card" type="button" style="margin-left: 10px;" class="paypal_btn">Login </button></a>
+            <a href="/user/signup"> <button name="add to card" type="button" class="paypal_btn">Sign up </button></a>
+            <p style="font-weight: bold; margin: 10px;"> Sign up or Login before add to cart</p>
+        
+    <?php } ?>
+            
         </div>
 
     </div>
@@ -80,64 +93,5 @@
     @endif
 
 </div>
-<div class="CSSTableGenerator" >
-                <table >
-                    <tr>
-                        <td>
-                            Title 1
-                        </td>
-                        <td >
-                            Title 2
-                        </td>
-                        <td>
-                            Title 3
-                        </td>
-                    </tr>
-                    <tr>
-                        <td >
-                            Row 1
-                        </td>
-                        <td>
-                            Row 1
-                        </td>
-                        <td>
-                            Row 1
-                        </td>
-                    </tr>
-                    <tr>
-                        <td >
-                            Row 2
-                        </td>
-                        <td>
-                            Row 2
-                        </td>
-                        <td>
-                            Row 2
-                        </td>
-                    </tr>
-                    <tr>
-                        <td >
-                            Row 2
-                        </td>
-                        <td>
-                            Row 2
-                        </td>
-                        <td>
-                            Row 2
-                        </td>
-                    </tr>
-                    <tr>
-                        <td >
-                            Row 3
-                        </td>
-                        <td>
-                            Row 3
-                        </td>
-                        <td>
-                            Row 3
-                        </td>
-                    </tr>
-                </table>
-            </div>
 
 @stop

@@ -35,5 +35,5 @@ Route::group(array('prefix' => 'admin'), function(){
 //Route::get('/', array('as' => 'home', 'uses' => 'ProductsController@getIndex'));
 Route::get('/', array('as' => 'home', 'uses' => 'HomeController@getIndex'));
 Route::get('details/{id}', array('as' => 'details', 'uses' => 'HomeController@getDetails'));
-Route::get('cart', array('as' => 'cart', 'uses' => 'HomeController@getCart'));
+Route::get('cart/{id}', array('as' => 'cart', 'uses' => 'HomeController@getCart'));
   

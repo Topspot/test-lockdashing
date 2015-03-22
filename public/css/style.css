@@ -1000,7 +1000,8 @@ float: right;
 }
 .CSSTableGenerator tr:first-child td:last-child{
 	border-width:0px 0px 1px 1px;
-}       
+}
+
 /*-----------------Product detail slider----------------*/
 
 .demo{margin:0 auto;width:600px;}

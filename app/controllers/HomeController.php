@@ -53,8 +53,12 @@ class HomeController extends BaseController {
         return View::make('home.details', compact('products', 'current_product'));
     }
 
-    public function getCart() {
-//        $current_product = Product::find($id);
+    public function getCart($id) {
+        $current_product = Product::find($id);
+        $current_user_id=App::make('authenticator')->getLoggedUser()->getID();
+        $all_product=array();
+        $all_product[]=$current_product;
+         Session::set($current_user_id.'_cart', $all_product);
         $brands = Brand::all();
         Session::set('brands', $brands);
         $populars = Popular::all();
@@ -63,7 +67,7 @@ class HomeController extends BaseController {
         Session::set('featured', $featured);
 
         $products = Product::where('featured', '!=', 1)->orderBy('created_at', 'desc')->take(3)->get();
-        return View::make('home.details', compact('products'));
+       return View::make('home.cart', compact('products'));
     }
 
 }

@@ -33,7 +33,7 @@
                         <a class="mult-icons" href="#"><i class="fa fa-heart"></i></a>
                         <a class="mult-icons" href="#"><i class="fa fa-star"></i></a>
                         <a class="mult-icons" href="#"><i class="fa fa-comment"></i></a>
-                        <div class="header-text"><span style="color: #b65d35">Good Evening,</span> versesdesign</div>
+                        <div class="header-text"><span style="color: #b65d35"></span><?php echo App::make('authenticator')->getLoggedUser()->getLogin(); ?></div>
                     </div>            
                 </div><!--header end-->
             </div><!--main-header end-->

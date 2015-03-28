@@ -9,7 +9,7 @@ class AdminSubCategoriesController extends \BaseController {
 	 */
 	public function index()
 	{
-		$subcategories = Subcategory::paginate(10);
+		$subcategories = Subcategory::orderBy('created_at', 'desc')->paginate(10);
 
 		return View::make('admin.subcategories.index', compact('subcategories'));
 	}

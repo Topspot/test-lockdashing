@@ -31,7 +31,7 @@ class HomeController extends BaseController {
             Session::set('brands', $brands);
             $populars = Popular::all();
             Session::set('populars', $populars);
-            $featured = Product::where('featured', '=', 1)->orderBy('created_at', 'desc')->take(4)->get();
+            $featured = Product::where('featured', '=', 1)->orderBy('created_at', 'desc')->take(15)->get();
             Session::set('featured', $featured);
 
 
@@ -56,9 +56,14 @@ class HomeController extends BaseController {
     public function getCart($id) {
         $current_product = Product::find($id);
         $current_user_id=App::make('authenticator')->getLoggedUser()->getID();
-        $all_product=array();
-        $all_product[]=$current_product;
-         Session::set($current_user_id.'_cart', $all_product);
+          $all_product=array();
+        if(Session::has($current_user_id.'_cart')){
+            $all_product=Session::get($current_user_id.'_cart');    
+        }
+            $all_product[]=$current_product;
+            Session::set($current_user_id.'_cart', $all_product);
+  
+         
         $brands = Brand::all();
         Session::set('brands', $brands);
         $populars = Popular::all();

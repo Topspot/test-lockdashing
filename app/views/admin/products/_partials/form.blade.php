@@ -48,22 +48,22 @@
       
     </div>
 </div>     
-<div class="form-group" >
+<!--<div class="form-group" >
     <label class="col-sm-3 control-label no-padding-right" > Likes </label>
 
-    <div class="col-sm-9">
-        {{ Form::text('likes',null,array('class' => 'col-xs-10 col-sm-5')) }}
+    <div class="col-sm-9">-->
+        {{ Form::hidden('likes',0,array('class' => 'col-xs-10 col-sm-5')) }}
       
-    </div>
-</div>        
-<div class="form-group" >
+<!--    </div>
+</div>        -->
+<!--<div class="form-group" >
     <label class="col-sm-3 control-label no-padding-right" > Star </label>
 
-    <div class="col-sm-9">
-        {{ Form::text('star',null,array('class' => 'col-xs-10 col-sm-5')) }}
+    <div class="col-sm-9">-->
+        {{ Form::hidden('star',0,array('class' => 'col-xs-10 col-sm-5')) }}
      
-    </div>
-</div>
+<!--    </div>
+</div>-->
 <div class="form-group">
     <label class="col-sm-3 control-label no-padding-right" > File </label>
 

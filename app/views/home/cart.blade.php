@@ -18,6 +18,9 @@
                            Quality
                         </td>
                         <td>
+                           Price
+                        </td>
+                        <td>
                            Action
                         </td>
                     </tr>
@@ -26,53 +29,26 @@
                     <?php // print_r($cart);exit();?>
                     <tr>
                         <td >
-                            <img src="<?php echo $cart->image; ?>" style="float: left" width="150" height="150" alt="product image">
-                            <span style="float: left; font-weight: bold; font-size: 14px; margin-top: 5px;">{{{ $cart->title }}}</span>
-                            <span style="float: left; font-weight: bold; font-size: 12px; margin-top: 5px;">{{{ $cart->subtitle }}}</span>
-                            <span style="float: left; font-weight: bold; font-size: 14px; margin-top: 10px;">${{{ $cart->price }}}</span>
-                        </td>
+                            <div style="width: 100%;">
+                            <img src="<?php echo $cart->image; ?>" style="float: left;" width="100" height="100" alt="product image">
+                            <span style=" font-weight: bold; font-size: 14px; margin-top: 5px; width: 60%;float: left;">{{{ $cart->title }}}</span>
+                            <span style=" font-weight: bold; font-size: 12px; margin-top: 5px; width: 60%;float: left;">{{{ $cart->subtitle }}}</span>
+                            <span style=" font-weight: bold; font-size: 14px; margin-top: 10px; width: 60%;float: left;">${{{ $cart->price }}}</span>
+                         
+                             </div>
+                            </td>
                         
                         <td>
-                            <input name="quality" id="quality">
+                            <input name="quality" id="quality" style="width: 50px; height: 20px;" value="1" >
+                        </td>
+                        <td>
+                           ${{{ $cart->price }}}
                         </td>
                         <td>
                             <a herf="">Cancel</a>
                         </td>
                     </tr>
                     @endforeach
-                    <tr>
-                        <td >
-                            Row 2
-                        </td>
-                        <td>
-                            Row 2
-                        </td>
-                        <td>
-                            Row 2
-                        </td>
-                    </tr>
-                    <tr>
-                        <td >
-                            Row 2
-                        </td>
-                        <td>
-                            Row 2
-                        </td>
-                        <td>
-                            Row 2
-                        </td>
-                    </tr>
-                    <tr>
-                        <td >
-                            Row 3
-                        </td>
-                        <td>
-                            Row 3
-                        </td>
-                        <td>
-                            Row 3
-                        </td>
-                    </tr>
                 </table>
             </div>
  @endif

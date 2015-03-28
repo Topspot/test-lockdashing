@@ -30,10 +30,19 @@
                         <div class="logo"></div>
                         <a class="mult-icons" href="#"><i class="fa fa-lock"></i></a>
                         <a class="mult-icons" href="#"><i class="fa fa-shopping-cart"></i></a>
-                        <a class="mult-icons" href="#"><i class="fa fa-heart"></i></a>
+<!--                        <a class="mult-icons" href="#"><i class="fa fa-heart"></i></a>
                         <a class="mult-icons" href="#"><i class="fa fa-star"></i></a>
-                        <a class="mult-icons" href="#"><i class="fa fa-comment"></i></a>
-                        <div class="header-text"><span style="color: #b65d35"></span><?php echo App::make('authenticator')->getLoggedUser()->getLogin(); ?></div>
+                        <a class="mult-icons" href="#"><i class="fa fa-comment"></i></a>-->
+                        <div class="header-text"><span style="color: #b65d35"></span>
+                        <?php 
+                        
+                        if(App::make('authenticator')->getLoggedUser()){
+                             echo App::make('authenticator')->getLoggedUser()->getLogin();
+                        }else{
+                            
+                        }
+                         ?>
+                        </div>
                     </div>            
                 </div><!--header end-->
             </div><!--main-header end-->
@@ -47,7 +56,16 @@
                                     <img src="/images/slide1.jpg" />
                                 </li>
                                 <li>
-                                    <img src="/images/slide1.jpg" />
+                                    <img src="/images/sliderdenimshirt_24th.jpg" />
+                                </li>
+                                <li>
+                                    <img src="/images/slidermtees_24th.jpg" />
+                                </li>
+                                <li>
+                                    <img src="/images/slidertops_24th.jpg" />
+                                </li>
+                                <li>
+                                    <img src="/images/sliderwdresses_24th.jpg" />
                                 </li>
                             </ul>
                         </div>
@@ -60,13 +78,10 @@
                         <!-- Here's all it takes to make this navigation bar. -->
                         <ul id="nav">
                             <li><a href="#">Home</a></li>
-                            <li><a href="#">Kids</a></li>
+                            <li><a href="#">Men</a></li>
                             <li><a href="#">Women</a></li>
                             <li><a href="#">Brands</a></li>
-                            <li><a href="#">Blog</a></li>
-                            <li><a href="#">Communities</a></li>
-                            <li><a href="#">Deilivery</a></li>
-                            <li><a href="#">Store</a></li>
+                            <li><a href="#">Cart</a></li>                          
                         </ul>
                         <!-- That's it! -->
                     </div>
@@ -99,24 +114,7 @@
                                             </li>
                                          @endforeach
                              @endif
-                             @if(count($featured))
-                             @foreach($featured as $feat)  
-					<li>
-                                            <div class="featured-image"><a href="#"> <img src="<?php echo $feat->image; ?>" alt="image"></a></div>
-                                               <div class="featured-text"> <a href="#" style="text-decoration: none; color:#000;">{{{$feat->title}}}</a></div>
-                           
-                                            </li>
-                                         @endforeach
-                             @endif
-                             @if(count($featured))
-                             @foreach($featured as $feat)  
-					<li>
-                                      <div class="featured-image"><a href="#"> <img src="<?php echo $feat->image; ?>" alt="image"></a></div>
-                                                         <div class="featured-text"> <a href="#" style="text-decoration: none; color:#000;">{{{$feat->title}}}</a></div>
-                           
-                                            </li>
-                                         @endforeach
-                             @endif
+                         
 				</ul>
                             <div class="clearfix"></div>
                             

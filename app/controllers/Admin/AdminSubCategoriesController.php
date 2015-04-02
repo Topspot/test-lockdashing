@@ -9,7 +9,7 @@ class AdminSubCategoriesController extends \BaseController {
 	 */
 	public function index()
 	{
-		$subcategories = Subcategory::orderBy('created_at', 'desc')->paginate(10);
+		$subcategories = SubCategory::orderBy('created_at', 'desc')->paginate(10);
 
 		return View::make('admin.subcategories.index', compact('subcategories'));
 	}
@@ -31,14 +31,14 @@ class AdminSubCategoriesController extends \BaseController {
 	 */
 	public function store()
 	{
-		$validator = Validator::make($data = Input::all(), Subcategory::$rules);
+		$validator = Validator::make($data = Input::all(), SubCategory::$rules);
 
 		if ($validator->fails())
 		{
 			return Redirect::back()->withErrors($validator)->withInput();
 		}
 
-		Subcategory::create($data);
+		SubCategory::create($data);
 
 		return Redirect::route('admin.subcategories.index');
 	}
@@ -51,7 +51,7 @@ class AdminSubCategoriesController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		$subcategory = Subcategory::findOrFail($id);
+		$subcategory = SubCategory::findOrFail($id);
 
 		return View::make('admin.subcategories.show', compact('subcategory'));
 	}
@@ -64,7 +64,7 @@ class AdminSubCategoriesController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		$subcategory = Subcategory::find($id);
+		$subcategory = SubCategory::find($id);
 
 		return View::make('admin.subcategories.edit', compact('subcategory'));
 	}
@@ -77,9 +77,9 @@ class AdminSubCategoriesController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		$subcategory = Subcategory::findOrFail($id);
+		$subcategory = SubCategory::findOrFail($id);
 
-		$validator = Validator::make($data = Input::all(), Subcategory::$rules);
+		$validator = Validator::make($data = Input::all(), SubCategory::$rules);
 
 		if ($validator->fails())
 		{
@@ -99,7 +99,7 @@ class AdminSubCategoriesController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		Subcategory::destroy($id);
+		SubCategory::destroy($id);
 
 		return Redirect::route('admin.subcategories.index');
 	}
@@ -113,7 +113,7 @@ class AdminSubCategoriesController extends \BaseController {
     public function getSubCategories($id) {
   
         $product_id=$_GET['product_id'];
-        $subcat = Subcategory::where('category_id', '=', $id)->get();
+        $subcat = SubCategory::where('category_id', '=', $id)->get();
         $products = Product::where('id', '=', $product_id)->get();
         return array($subcat,$products);
     }
@@ -126,7 +126,7 @@ class AdminSubCategoriesController extends \BaseController {
     public function getSubCategoriesPopular($id) {
   
         $popular_id=$_GET['product_id'];
-        $subcat = Subcategory::where('category_id', '=', $id)->get();
+        $subcat = SubCategory::where('category_id', '=', $id)->get();
         $products = Popular::where('id', '=', $popular_id)->get();
         return array($subcat,$products);
     }

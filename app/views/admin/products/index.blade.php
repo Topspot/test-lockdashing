@@ -2,15 +2,6 @@
 
 @section('content')
 
-@if(Session::get('message'))
-@if(!empty(Session::get('message')))
-
-<div class="alert alert-block alert-success">
-        {{ Session::get('message') }}
-        {{ Session::put('message', ''); }}
-</div>
-@endif
-@endif
 <h1>Products</h1>
 
 {{ link_to_route('admin.products.create', 'Create new Product',array(), array('class' => 'btn btn-inverse')) }}
@@ -61,7 +52,7 @@
                                                 <td>{{{ $product->likes }}}</td>
                                                 <td>{{{ $product->star }}}</td>
                                                 <td>{{{ $product->price }}}</td>
-                                                <td><img src="<?php echo $product->image; ?>" width="50px" height="50px" alt="product"></td>
+                                                <td><img src="<?php echo URL::to('/'); ?>/<?php echo $product->image; ?>" width="50px" height="50px" alt="product"></td>
                                                 <?php $brand_data =Brand::find($product->brand_id); ?>
                                                 <td>{{{ $brand_data->name }}}</td>
                                                  <?php $categoy_data =Category::find($product->category_id); ?>
@@ -83,7 +74,7 @@
                                                 <td>
                                                         <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
                                                                 
-                                                                <a class="green" href="/admin/products/<?php echo $product->id ?>/edit">
+                                                                <a class="green" href="<?php echo URL::to('/'); ?>/admin/products/<?php echo $product->id ?>/edit">
                                                                         <i class="icon-pencil bigger-130"></i>
                                                                 </a>
 

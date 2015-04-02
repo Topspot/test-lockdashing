@@ -4,15 +4,15 @@
     <div style="width:30%; float: left;">
         <div class="zoom-section">    	  
             <div class="zoom-small-image">
-                <a href='#' class = 'cloud-zoom' id='zoom1' rel="adjustX:10, adjustY:-4"><img src="/images/images/smallimage.jpg" alt='' title="Optional title display" /></a></div>
+                <a href='#' class = 'cloud-zoom' id='zoom1' rel="adjustX:10, adjustY:-4"><img src="<?php echo URL::to('/'); ?>/images/images/smallimage.jpg" alt='' title="Optional title display" /></a></div>
             <div class="zoom-desc">
                 <h3></h3>       
-                <p><a href='#' class='cloud-zoom-gallery' title='Red' rel="useZoom: 'zoom1', smallImage: '/images/images/smallimage.jpg' "><img class="zoom-tiny-image" src="/images/images/tinyimage.jpg" alt = "Thumbnail 1"/></a>
-                    <a href='#' class='cloud-zoom-gallery' title='Red' rel="useZoom: 'zoom1', smallImage: '/images/images/smallimage.jpg' "><img class="zoom-tiny-image" src="/images/images/tinyimage.jpg" alt = "Thumbnail 1"/></a>
+                <p><a href='#' class='cloud-zoom-gallery' title='Red' rel="useZoom: 'zoom1', smallImage: '<?php echo URL::to('/'); ?>/images/images/smallimage.jpg' "><img class="zoom-tiny-image" src="<?php echo URL::to('/'); ?>/images/images/tinyimage.jpg" alt = "Thumbnail 1"/></a>
+                    <a href='#' class='cloud-zoom-gallery' title='Red' rel="useZoom: 'zoom1', smallImage: '<?php echo URL::to('/'); ?>/images/images/smallimage.jpg' "><img class="zoom-tiny-image" src="<?php echo URL::to('/'); ?>/images/images/tinyimage.jpg" alt = "Thumbnail 1"/></a>
 
 <!--<a href='images/images/bigimage01.jpg' class='cloud-zoom-gallery' title='Blue' rel="useZoom: 'zoom1', smallImage: ' images/images/smallimage-1.jpg'"><img class="zoom-tiny-image" src="images/images/tinyimage-1.jpg" alt = "Thumbnail 2"/></a>-->                  
-                    <a href='#' class='cloud-zoom-gallery' title='Blue' rel="useZoom: 'zoom1', smallImage: '/images/images/smallimage-2.jpg' "><img class="zoom-tiny-image" src="/images/images/tinyimage-2.jpg" alt = "Thumbnail 3"/></a>
-                    <a href='#' class='cloud-zoom-gallery' title='Blue' rel="useZoom: 'zoom1', smallImage: '/images/images/smallimage-2.jpg' "><img class="zoom-tiny-image" src="/images/images/tinyimage-2.jpg" alt = "Thumbnail 3"/></a>
+                    <a href='#' class='cloud-zoom-gallery' title='Blue' rel="useZoom: 'zoom1', smallImage: '<?php echo URL::to('/'); ?>/images/images/smallimage-2.jpg' "><img class="zoom-tiny-image" src="<?php echo URL::to('/'); ?>/images/images/tinyimage-2.jpg" alt = "Thumbnail 3"/></a>
+                    <a href='#' class='cloud-zoom-gallery' title='Blue' rel="useZoom: 'zoom1', smallImage: '<?php echo URL::to('/'); ?>/images/images/smallimage-2.jpg' "><img class="zoom-tiny-image" src="<?php echo URL::to('/'); ?>/images/images/tinyimage-2.jpg" alt = "Thumbnail 3"/></a>
                 </p>
 
             </div>
@@ -21,7 +21,7 @@
     <div style="width: 60%; float: right; padding: 20px 0px;">
         <p class="main-title">{{{ $current_product->title }}}</p>
         <p class="main-subtitle">{{{ $current_product->subtitle }}}</p>
-        <img src="/images/rating.png" alt="rating">
+        <img src="<?php echo URL::to('/'); ?>/images/rating.png" alt="rating">
         <div style="width: 100%; height:39px;   margin: 15px 0px;">
             <p class="main-price">US ${{{ $current_product->price }}}</p>
             <div style="width: 60%;float: right; font-weight: bold; margin-left: 20px;">Size : <select name="mydropdown" style="width: 60%; font-weight: normal;">
@@ -42,8 +42,8 @@
     }else{
         ?>
            
-            <a href="/login"> <button name="add to card" type="button" style="margin-left: 10px;" class="paypal_btn">Login </button></a>
-            <a href="/user/signup"> <button name="add to card" type="button" class="paypal_btn">Sign up </button></a>
+            <a href="<?php echo URL::to('/'); ?>/login"> <button name="add to card" type="button" style="margin-left: 10px;" class="paypal_btn">Login </button></a>
+            <a href="<?php echo URL::to('/'); ?>/user/signup"> <button name="add to card" type="button" class="paypal_btn">Sign up </button></a>
             <p style="font-weight: bold; margin: 10px;"> Sign up or Login before add to cart</p>
         
     <?php } ?>
@@ -62,7 +62,7 @@
     @foreach($products as $product)
     <div class="item-box">
         <figure>
-            <img src="<?php echo $product->image; ?>" alt="image">
+            <img src="<?php echo URL::to('/'); ?>/<?php echo $product->image; ?>" alt="image">
 
             <figcaption>
                 <div class="item-star"></div>                        

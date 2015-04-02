@@ -8,17 +8,16 @@ class AdminProductsController extends \BaseController {
      * @return Response
      */
     public function index() {
+                 
         $current_user_id = App::make('authenticator')->getLoggedUser()->getId();
-//           print_r($current_user_id);exit();
+
         if ($current_user_id == 1) {
             $products = Product::orderBy('created_at', 'desc')->paginate(10);
         } else {
             $products = Product::where('user_id', '=', $current_user_id)
                             ->orderBy('created_at', 'desc')->paginate(10);
         }
-
-
-
+//         Session::set('message', "");
         return View::make('admin.products.index', compact('products'));
     }
 
@@ -50,12 +49,14 @@ class AdminProductsController extends \BaseController {
             $file = Input::file('image');
             $destinationPath = public_path() . '/img/';
             $filename = str_random(6) . '_' . $file->getClientOriginalName();
+//            print_r($destinationPath);exit();
+            
             $uploadSuccess = $file->move($destinationPath, $filename);
-            $data["image"] = '/img/' . $filename;
+            $data["image"] = 'img/' . $filename;
         }
 
         Product::create($data);
-        Session::set('message', "Product is successfully added.");
+//        Session::set('message', "Product is successfully added.");
         return Redirect::route('admin.products.index');
     }
 
@@ -91,7 +92,9 @@ class AdminProductsController extends \BaseController {
      */
     public function update($id) {
         $product = Product::findOrFail($id);
-
+         if ($product) {
+            File::delete(public_path() ."/". $product->image);
+        }
         $validator = Validator::make($data = Input::all(), Product::$rules);
 
         if ($validator->fails()) {
@@ -99,14 +102,14 @@ class AdminProductsController extends \BaseController {
         }
         if (Input::hasFile('image')) {
             $file = Input::file('image');
-            $destinationPath = public_path() . '/img/';
+            $destinationPath = public_path() . 'img/';
             $filename = str_random(6) . '_' . $file->getClientOriginalName();
             $uploadSuccess = $file->move($destinationPath, $filename);
-            $data["image"] = '/img/' . $filename;
+            $data["image"] = 'img/' . $filename;
         } else {
             unset($data['image']);
         }
-        Session::set('message', "Product is updated successfully.");
+//        Session::set('message', "Product is updated successfully.");
         $product->update($data);
 
         return Redirect::route('admin.products.index');
@@ -121,9 +124,9 @@ class AdminProductsController extends \BaseController {
     public function destroy($id) {
         $product = Product::find($id);
         if ($product) {
-            File::delete(public_path() . $product->image);
+            File::delete(public_path() ."/". $product->image);
         }
-        Session::set('message', "Product is deleted successfully.");
+//        Session::set('message', "Product is deleted successfully.");
         Product::destroy($id);
 
 //		return Redirect::route('admin.products.index');

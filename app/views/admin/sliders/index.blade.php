@@ -1,10 +1,9 @@
 @extends('laravel-authentication-acl::admin.layouts.base')
 
 @section('content')
-
-<h1>Sub Categories</h1>
-{{ link_to_route('admin.subcategories.create', 'Create new Sub Category',array(), array('class' => 'btn btn-inverse')) }}
-<button class="btn btn-danger" onclick="multipleDelete('subcategories');"><i class="icon-trash bigger-130"></i> Multiple Delete</button>
+<h1>Slider Images</h1>
+{{ link_to_route('admin.sliders.create', 'Add new Slider Image',array(), array('class' => 'btn btn-inverse')) }}
+<button class="btn btn-danger" onclick="multipleDelete('brands');"><i class="icon-trash bigger-130"></i> Multiple Delete</button>
 <div class="row">
         <div class="col-xs-12">
                 <div class="table-responsive">
@@ -17,40 +16,34 @@
                                                                 <span class="lbl"></span>
                                                         </label>
                                                 </th>
-                                                <th>Name</th>
-                                                <th>Category</th>
+                                                <th>Image</th>
                                                 <th></th>
                                         </tr>
                                 </thead>
 
                                 <tbody class="product-table">
-                                    @if(count($subcategories))
-                                     @foreach($subcategories as $subcategory)
-                                        <tr data-id="<?php echo $subcategory->id ?>">
+                                    @if(count($sliders))
+                                     @foreach($sliders as $slider)
+                                        <tr data-id="<?php echo $slider->id ?>">
                                                 <td class="center">
                                                         <label>
                                                                 <input type="checkbox" class="ace checkbox1" />
                                                                 <span class="lbl"></span>
                                                         </label>
                                                 </td>
-
                                                 <td>
 
-                                                        {{{ $subcategory->name }}}
-                                                </td>
-                                                <td>
-                                                <?php $categoy_data =Category::find($subcategory->category_id); ?>
-                                                        {{{  $categoy_data->name }}}
+                                                       <img src="<?php echo URL::to('/'); ?>/<?php echo $slider->image; ?>" width="300px" height="200px" alt="brand image">
                                                 </td>
 
                                                 <td>
                                                         <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
                                                                 
-                                                                <a class="green" href="<?php echo URL::to('/'); ?>/admin/subcategories/<?php echo $subcategory->id ?>/edit">
+                                                                <a class="green" href="<?php echo URL::to('/'); ?>/admin/sliders/<?php echo $slider->id ?>/edit">
                                                                         <i class="icon-pencil bigger-130"></i>
                                                                 </a>
 
-                                                                <a class="red" href="#" onclick="openModal('subcategories','<?php echo $subcategory->id; ?>','<?php echo $subcategory->name; ?>');">
+                                                                <a class="red" href="#" onclick="openModal('sliders','<?php echo $slider->id; ?>','Slider image');">
                                                                         <i class="icon-trash bigger-130"></i>
                                                                 </a>
                                                         </div>
@@ -95,7 +88,6 @@
                                         
                                 </tbody>
                         </table>
-                     <?php echo $subcategories->links(); ?>
                 </div>
         </div>
 </div>

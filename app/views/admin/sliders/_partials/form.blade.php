@@ -1,16 +1,8 @@
-<div class="form-group" style="height: 40px;">
-    <label class="col-sm-3 control-label no-padding-right" > Name </label>
-
-    <div class="col-sm-9">
-        {{ Form::text('name',null ,array('class' => 'col-xs-10 col-sm-5')) }}
-     
-    </div>
-</div>
 <div class="form-group">
     <label class="col-sm-3 control-label no-padding-right" > File </label>
 
     <div class="col-sm-9">
-         <?php if(isset($brand)){?>
+         <?php if(isset($slider)){?>
          {{ Form::file('image',array('class' => 'col-xs-10 col-sm-5','id' => 'fileupload')) }}
         <?php }else{ ?>  
         {{ Form::file('image',array('class' => 'col-xs-10 col-sm-5 required','id' => 'fileupload')) }}
@@ -18,11 +10,11 @@
     </div>
   
 </div>
-<?php if(isset($brand)){?>
+<?php if(isset($slider)){?>
 <div class="form-group">
     <label class="col-sm-3 control-label no-padding-right" >  </label>
     <div class="col-sm-9">               
-    <div ><img src="<?php echo URL::to('/'); ?>/<?php echo $brand->image; ?>" width="200px" height="150px"></div>
+    <div ><img src="<?php echo URL::to('/'); ?>/<?php echo $slider->image; ?>" width="300px" height="200px"></div>
     </div>  
 </div>
   <?php } ?>  
@@ -31,6 +23,6 @@
     <div class="col-md-offset-3 col-md-9">
         {{ Form::submit('Save',array('class' => 'btn btn-info')) }}
         &nbsp; &nbsp; &nbsp;
-        <a href="/admin/brands" class="btn btn-grey">Back</a>
+        <a href="/admin/sliders" class="btn btn-grey">Back</a>
     </div>
 </div>

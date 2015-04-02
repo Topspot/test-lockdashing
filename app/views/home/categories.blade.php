@@ -1,8 +1,8 @@
 @extends('_layouts.default')
 @section('content')
-@if(count($products))
+@if(count($gotdata))
 <?php $count=0; ?>
-    @foreach($products as $product)
+    @foreach($gotdata as $product)
 <div class="item-box">
     <figure>
         <img src="<?php echo $product->image; ?>" alt="image">
@@ -10,16 +10,14 @@
             <figcaption>
                 <div class="item-star"></div>                        
                 <div class="item-search-icon"><i class="fa fa-search search-icon fa-2x"></i></div>     
-                <div class="fivestar"> <img src="<?php echo URL::to('/'); ?>/images/rating.png" alt="rating" style=" width: 62px !important;
-                height: 13px !important;
-                padding: 1px;"></div>
+                <div class="fivestar"></div>
 
                 <!--<p><a href="#">Read More</a></p>-->
                 <div class="item-options">
                     <a href="#" class="option-price">${{{ $product->price }}}</a>
                     <a href="#" class="option-cart"><i class="fa fa-cart-plus"></i></a>
                     <a href="#"class="option-heart" data-bind="<?php echo  $product->id; ?>"><i class="fa fa-heart"></i><div class="likes-no">{{{ $product->likes }}}</div></a>
-                    <a href="<?php echo URL::to('/'); ?>/details/<?php echo  $product->id; ?>"class="option-detail">View Details</a>
+                    <a href="/details/<?php echo  $product->id; ?>"class="option-detail">View Details</a>
                 </div>
             </figcaption>
     </figure>
@@ -35,5 +33,5 @@
     @endforeach
 
 @endif
-<?php echo $products->links(); ?>
+<?php echo $gotdata->links(); ?>
 @stop

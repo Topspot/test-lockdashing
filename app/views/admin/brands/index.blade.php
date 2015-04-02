@@ -1,15 +1,6 @@
 @extends('laravel-authentication-acl::admin.layouts.base')
 
 @section('content')
-@if(Session::get('message'))
-@if(!empty(Session::get('message')))
-
-<div class="alert alert-block alert-success">
-        {{ Session::get('message') }}
-        {{ Session::put('message', ''); }}
-</div>
-@endif
-@endif
 <h1>Brands</h1>
 {{ link_to_route('admin.brands.create', 'Create new Brand',array(), array('class' => 'btn btn-inverse')) }}
 <button class="btn btn-danger" onclick="multipleDelete('brands');"><i class="icon-trash bigger-130"></i> Multiple Delete</button>
@@ -48,13 +39,13 @@
                                                 </td>
                                                 <td>
 
-                                                       <img src="<?php echo $brand->image; ?>" width="50px" height="50px" alt="brand image">
+                                                       <img src="<?php echo URL::to('/'); ?>/<?php echo $brand->image; ?>" width="50px" height="50px" alt="brand image">
                                                 </td>
 
                                                 <td>
                                                         <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
                                                                 
-                                                                <a class="green" href="/admin/brands/<?php echo $brand->id ?>/edit">
+                                                                <a class="green" href="<?php echo URL::to('/'); ?>/admin/brands/<?php echo $brand->id ?>/edit">
                                                                         <i class="icon-pencil bigger-130"></i>
                                                                 </a>
 
@@ -107,17 +98,4 @@
                 </div>
         </div>
 </div>
-<!--@if(count($brands))
-    <ul>
-    @foreach($brands as $brand)
-        <li>
-            {{ link_to_route('admin.brands.edit', $brand->name, array($brand->id)) }}
-            {{ Form::open(array('route' => array('admin.brands.destroy', $brand->id), 'method' => 'delete', 'class' => 'destroy')) }}
-            {{ Form::submit('Delete') }}
-            {{ Form::close() }}
-        </li>
-    @endforeach
-    </ul>
-@endif-->
-
 @stop

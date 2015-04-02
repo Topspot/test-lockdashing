@@ -1,15 +1,7 @@
 @extends('laravel-authentication-acl::admin.layouts.base')
 
 @section('content')
-@if(Session::get('message'))
-@if(!empty(Session::get('message')))
 
-<div class="alert alert-block alert-success">
-        {{ Session::get('message') }}
-        {{ Session::put('message', ''); }}
-</div>
-@endif
-@endif
 <h1>Popular Categories</h1>
 {{ link_to_route('admin.populars.create', 'Create new Popular Category',array(), array('class' => 'btn btn-inverse')) }}
 <button class="btn btn-danger" onclick="multipleDelete('populars');"><i class="icon-trash bigger-130"></i> Multiple Delete</button>
@@ -66,7 +58,7 @@
                                                 <td>
                                                         <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
                                                                 
-                                                                <a class="green" href="/admin/populars/<?php echo $popular->id ?>/edit">
+                                                                <a class="green" href="<?php echo URL::to('/'); ?>/admin/populars/<?php echo $popular->id ?>/edit">
                                                                         <i class="icon-pencil bigger-130"></i>
                                                                 </a>
 

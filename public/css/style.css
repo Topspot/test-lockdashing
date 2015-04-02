@@ -37,7 +37,7 @@ width:100%;
 margin:0 auto;	
 height:auto;
 background-color: #320809;
-border-bottom: 1px solid #dacbc4;
+/*border-bottom: 1px solid #dacbc4;*/
 }
 .main-header-light{
 width:100%;
@@ -97,7 +97,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#efa868', end
 }
 
 /* -------------------------------------Begin Navigation Bar Styling */
-#nav {
+/*#nav {
    width: 100%;
    float: left;
    list-style: none;
@@ -113,13 +113,109 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#efa868', end
    color: #fff;
    font-family: arial;
    font-size: 14px;
-   /*border-right: 1px solid #ccc;*/ 
+   border-right: 1px solid #ccc; 
 }
 #nav li a:hover {
    color: #fff;
    background-color: #b65d35;
    border-top: 2px solid #d3814a;
     padding: 20px 23px 22px;
+}*/
+#primary_nav_wrap
+{
+	/*margin-top:15px*/
+}
+
+#primary_nav_wrap ul
+{
+	list-style:none;
+	position:relative;
+	float:left;
+	margin:0;
+	padding:0
+}
+
+#primary_nav_wrap ul a
+{
+	display:block;
+	color:#FFF;
+	text-decoration:none;
+	font-weight:700;
+	font-size:14px;
+	line-height:32px;
+	padding:14px 26px;
+	font-family:"HelveticaNeue","Helvetica Neue",Helvetica,Arial,sans-serif
+}
+
+#primary_nav_wrap ul li
+{
+	position:relative;
+	float:left;
+	margin:0;
+	padding:0
+}
+
+#primary_nav_wrap ul li.current-menu-item
+{
+	background:#b65d35;
+}
+
+#primary_nav_wrap ul li:hover
+{
+	background:#b65d35;
+        padding-bottom: 5px;
+}
+
+#primary_nav_wrap ul ul
+{
+	display:none;
+	position:absolute;
+	top:100%;
+	left:0;
+	background:#fff;
+	padding:0;
+            z-index:9999;
+}
+
+#primary_nav_wrap ul ul li:hover{
+     padding-bottom: 0px;
+             padding-top: 0px;
+}
+#primary_nav_wrap ul ul li
+{
+	float:none;
+	width:200px;
+             padding-bottom: 0px;
+             padding-top: 0px;
+            
+}
+
+#primary_nav_wrap ul ul a:hover
+{       padding:12px 15px;
+     background: #b65d35;
+}
+#primary_nav_wrap ul ul a
+{
+	line-height:120%;
+	padding:12px 15px;
+            background: #320809;
+            border-bottom: 1px solid #230606;
+            border-top: 1px solid #45140f;
+}
+#primary_nav_wrap ul ul a:first-child
+{
+     border-top: 0px solid #45140f;
+}
+#primary_nav_wrap ul ul ul
+{
+	top:0;
+	left:100%
+}
+
+#primary_nav_wrap ul li:hover > ul
+{    
+      
+	display:block
 }
 /* -----------------------------------------------------End navigation bar styling. */
 .border-brown{
@@ -293,10 +389,13 @@ background-color: #f7ebdd;
      background-color: #871606;
      margin-bottom: 20px;
 }
+.promotion-large img{
+   width: 100%; 
+}
 .promotion-large{
       width: 100%;
-    height: 200px;
-    background-color: #871606;
+/*    height: 231px;
+    background-color: #871606;*/
 }
 .hot-items{
     width: 100%;

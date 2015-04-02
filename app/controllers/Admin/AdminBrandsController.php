@@ -43,7 +43,7 @@ class AdminBrandsController extends \BaseController {
             $destinationPath = public_path() . '/img/brands/';
             $filename = str_random(6) . '_' . $file->getClientOriginalName();
             $uploadSuccess = $file->move($destinationPath, $filename);
-            $data["image"] = '/img/brands/' . $filename;
+            $data["image"] = 'img/brands/' . $filename;
         }
         Brand::create($data);
         Session::set('message', "Brand is successfully added.");
@@ -83,7 +83,10 @@ class AdminBrandsController extends \BaseController {
      */
     public function update($id) {
         $brand = Brand::findOrFail($id);
-
+         if ($brand) {
+            
+             File::delete(public_path() ."/". $brand->image);
+        }
         $validator = Validator::make($data = Input::all(), Brand::$rules);
 
         if ($validator->fails()) {
@@ -95,7 +98,7 @@ class AdminBrandsController extends \BaseController {
             $destinationPath = public_path() . '/img/brands/';
             $filename = str_random(6) . '_' . $file->getClientOriginalName();
             $uploadSuccess = $file->move($destinationPath, $filename);
-            $data["image"] = '/img/brands/' . $filename;
+            $data["image"] = 'img/brands/' . $filename;
         } else {
             unset($data['image']);
         }
@@ -113,6 +116,11 @@ class AdminBrandsController extends \BaseController {
      */
     public function destroy($id) {
         Session::set('message', "Brand is deleted successfully.");
+         $brand = Brand::find($id);
+        if ($brand) {
+            
+             File::delete(public_path() ."/". $brand->image);
+        }
         Brand::destroy($id);
 
 //		return Redirect::route('admin.brands.index');

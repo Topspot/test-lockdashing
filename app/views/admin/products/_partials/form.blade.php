@@ -81,7 +81,9 @@
 <div class="form-group">
     <label class="col-sm-3 control-label no-padding-right" >  </label>
     <div class="col-sm-9">               
-    <div ><img src="<?php echo $product->image; ?>" width="200px" height="100px"></div>
+    <div >
+        
+        <img src="<?php echo URL::to('/'); ?>/<?php echo $product->image; ?>" width="200px" height="200px" alt="form product image"></div>
     </div>  
 </div>
   <?php } ?>  

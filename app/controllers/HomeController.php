@@ -46,7 +46,7 @@ class HomeController extends BaseController {
         Session::set('brands', $brands);
         $populars = Popular::all();
         Session::set('populars', $populars);
-        $featured = Product::where('featured', '=', 1)->orderBy('created_at', 'desc')->take(4)->get();
+        $featured = Product::where('featured', '=', 1)->orderBy('created_at', 'desc')->take(15)->get();
         Session::set('featured', $featured);
 
         $products = Product::where('featured', '!=', 1)->where('id', '!=', $id)->orderBy('created_at', 'desc')->take(6)->get();
@@ -54,25 +54,72 @@ class HomeController extends BaseController {
     }
 
     public function getCart($id) {
-        $current_product = Product::find($id);
-        $current_user_id=App::make('authenticator')->getLoggedUser()->getID();
-          $all_product=array();
-        if(Session::has($current_user_id.'_cart')){
-            $all_product=Session::get($current_user_id.'_cart');    
+        if ( null !== App::make('authenticator')->getLoggedUser()) {
+
+            $current_user_id = App::make('authenticator')->getLoggedUser()->getID();
+            $all_product = array();
+            if (Session::has($current_user_id . '_cart')) {
+                $all_product = Session::get($current_user_id . '_cart');
+            }
+            if ($id != 0) {
+                $current_product = Product::find($id);
+                $all_product[] = $current_product;
+                Session::set($current_user_id . '_cart', $all_product);
+            }
+  } else {
+            Session::set('message', "Please Login or Signup to add and view cart.");
         }
-            $all_product[]=$current_product;
-            Session::set($current_user_id.'_cart', $all_product);
-  
-         
+
+            $brands = Brand::all();
+            Session::set('brands', $brands);
+            $populars = Popular::all();
+            Session::set('populars', $populars);
+            $featured = Product::where('featured', '=', 1)->orderBy('created_at', 'desc')->take(15)->get();
+            Session::set('featured', $featured);
+
+            $products = Product::where('featured', '!=', 1)->orderBy('created_at', 'desc')->take(3)->get();
+            return View::make('home.cart', compact('products'));
+      
+    }
+
+    public function getCategories() {
+//        print_r($_GET['price']);
+        $category_id = $_GET['cat'];
+        $subcategory_id = $_GET['sub'];
+        $price = $_GET['price'];
+        $gotdata = Product::where('category_id', '=', $category_id)
+                        ->where('subcategory_id', '=', $subcategory_id)
+                        ->where('price', '>', $price)
+                        ->orderBy('created_at', 'desc')->paginate(9);
         $brands = Brand::all();
         Session::set('brands', $brands);
         $populars = Popular::all();
         Session::set('populars', $populars);
-        $featured = Product::where('featured', '=', 1)->orderBy('created_at', 'desc')->take(4)->get();
+        $featured = Product::where('featured', '=', 1)->orderBy('created_at', 'desc')->take(15)->get();
         Session::set('featured', $featured);
+        return View::make('home.categories', compact('gotdata'));
+    }
 
-        $products = Product::where('featured', '!=', 1)->orderBy('created_at', 'desc')->take(3)->get();
-       return View::make('home.cart', compact('products'));
+    public function getBrands() {
+        $allbrands = Brand::paginate(9);
+        $brands = Brand::all();
+        Session::set('brands', $brands);
+        $populars = Popular::all();
+        Session::set('populars', $populars);
+        $featured = Product::where('featured', '=', 1)->orderBy('created_at', 'desc')->take(15)->get();
+        Session::set('featured', $featured);
+        return View::make('home.brands', compact('allbrands'));
+    }
+
+    public function getFeatureditem() {
+        $featureditems = Product::where('featured', '=', 1)->orderBy('created_at', 'desc')->paginate(9);
+        $brands = Brand::all();
+        Session::set('brands', $brands);
+        $populars = Popular::all();
+        Session::set('populars', $populars);
+        $featured = Product::where('featured', '=', 1)->orderBy('created_at', 'desc')->take(15)->get();
+        Session::set('featured', $featured);
+        return View::make('home.featureditem', compact('featureditems'));
     }
 
 }

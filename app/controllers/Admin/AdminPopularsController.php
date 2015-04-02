@@ -39,7 +39,7 @@ class AdminPopularsController extends \BaseController {
 		}
 
 		Popular::create($data);
-                Session::set('message', "Popular Category is Added successfully.");
+//                Session::set('message', "Popular Category is Added successfully.");
 
 		return Redirect::route('admin.populars.index');
 	}
@@ -86,7 +86,7 @@ class AdminPopularsController extends \BaseController {
 		{
 			return Redirect::back()->withErrors($validator)->withInput();
 		}
-                  Session::set('message', "Popular Category is updated successfully.");
+//                  Session::set('message', "Popular Category is updated successfully.");
 		$popular->update($data);
 
 		return Redirect::route('admin.populars.index');

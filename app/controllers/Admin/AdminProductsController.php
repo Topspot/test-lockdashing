@@ -37,8 +37,6 @@ class AdminProductsController extends \BaseController {
      */
     public function store() {
 
-
-
         $validator = Validator::make($data = Input::all(), Product::$rules);
 
         if ($validator->fails()) {
@@ -49,26 +47,25 @@ class AdminProductsController extends \BaseController {
             if ($i == 0) {
                 if (Input::hasFile('image')) {
                     $file = Input::file('image');
-                    $destinationPath = public_path() . '/img/img/';
+                    $destinationPath = public_path() . '/img/';
                     $filename = str_random(6) . '_' . $file->getClientOriginalName();
 
                     $uploadSuccess = $file->move($destinationPath, $filename);
-                    $data["image"] = 'img/img/' . $filename;
+                    $data["image"] = 'img/' . $filename;
                 }
             } else {
                 if (Input::hasFile('image'.$i)) {
                     $file = Input::file('image'.$i);
-                    $destinationPath = public_path() . '/img/img/';
+                    $destinationPath = public_path() . '/img/';
                     $filename = str_random(6) . '_' . $file->getClientOriginalName();
 
 
                     $uploadSuccess = $file->move($destinationPath, $filename);
-                    $data["image$i"] = 'img/img/' . $filename;
+                    $data["image$i"] = 'img/' . $filename;
 //                    print_r($data["image1"]);exit;
                 }
             }
         }
-//                    print_r($data);exit();
         Product::create($data);
 //        Session::set('message', "Product is successfully added.");
         return Redirect::route('admin.products.index');
@@ -118,10 +115,10 @@ class AdminProductsController extends \BaseController {
                 if (Input::hasFile('image')) {
                     File::delete(public_path() . "/" . $product->image);
                     $file = Input::file('image');
-                    $destinationPath = public_path() . '/img/img/';
+                    $destinationPath = public_path() . '/img/';
                     $filename = str_random(6) . '_' . $file->getClientOriginalName();
                     $uploadSuccess = $file->move($destinationPath, $filename);
-                    $data["image"] = 'img/img/' . $filename;
+                    $data["image"] = 'img/' . $filename;
                 } else {
                     
                     unset($data['image']);
@@ -136,10 +133,10 @@ class AdminProductsController extends \BaseController {
                         File::delete(public_path() . "/" .$product->image3 );
                     }
                     $file = Input::file('image'.$i);
-                    $destinationPath = public_path() . '/img/img/';
+                    $destinationPath = public_path() . '/img/';
                     $filename = str_random(6) . '_' . $file->getClientOriginalName();
                     $uploadSuccess = $file->move($destinationPath, $filename);
-                    $data["image$i"] = 'img/img/' . $filename;
+                    $data["image$i"] = 'img/' . $filename;
                 } else {
                    
                     unset($data['image'.$i]);

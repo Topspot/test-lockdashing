@@ -8,13 +8,14 @@
             <div class="zoom-desc">
                 <h3></h3>       
                 <p>
+                    <?php if(isset($current_product->image1) && !empty($current_product->image1)){?>
                     <a href='#' class='cloud-zoom-gallery' title='Red' rel="useZoom: 'zoom1', smallImage: '<?php echo URL::to('/'); ?>/<?php echo $current_product->image; ?>' "><img class="zoom-tiny-image" src="<?php echo URL::to('/'); ?>/<?php echo $current_product->image; ?>" width="48" height="64" alt = "Thumbnail 1"/></a>
                     <a href='#' class='cloud-zoom-gallery' title='Red' rel="useZoom: 'zoom1', smallImage: '<?php echo URL::to('/'); ?>/<?php echo $current_product->image1; ?>' "><img class="zoom-tiny-image" src="<?php echo URL::to('/'); ?>/<?php echo $current_product->image1; ?>" width="48" height="64" alt = "Thumbnail 1"/></a>
                     <a href='#' class='cloud-zoom-gallery' title='Red' rel="useZoom: 'zoom1', smallImage: '<?php echo URL::to('/'); ?>/<?php echo $current_product->image2; ?>' "><img class="zoom-tiny-image" src="<?php echo URL::to('/'); ?>/<?php echo $current_product->image2; ?>" width="48" height="64" alt = "Thumbnail 1"/></a>
 
 
                     <a href='#' class='cloud-zoom-gallery' title='Blue' rel="useZoom: 'zoom1', smallImage: '<?php echo URL::to('/'); ?>/<?php echo $current_product->image3; ?>' "><img class="zoom-tiny-image" src="<?php echo URL::to('/'); ?>/<?php echo $current_product->image3; ?>" width="48" height="64" alt = "Thumbnail 3"/></a>
-
+                    <?php } ?>    
                 </p>
 
             </div>

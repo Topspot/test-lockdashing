@@ -76,7 +76,6 @@
     </div>
   
 </div>
-{{ Form::hidden('featured',0,array('class' => 'col-xs-10 col-sm-5')) }}
 <?php if(isset($product)){?>
 <div class="form-group">
     <label class="col-sm-3 control-label no-padding-right" >  </label>
@@ -87,6 +86,74 @@
     </div>  
 </div>
   <?php } ?>  
+<div class="form-group">
+    <label class="col-sm-3 control-label no-padding-right" > File </label>
+
+    <div class="col-sm-9">
+         <?php if(isset($product)){?>
+         {{ Form::file('image1',array('class' => 'col-xs-10 col-sm-5','id' => 'fileupload')) }}
+        <?php }else{ ?>  
+        {{ Form::file('image1',array('class' => 'col-xs-10 col-sm-5 required','id' => 'fileupload')) }}
+        <?php } ?>  
+    </div>
+  
+</div>
+<?php if(isset($product)){?>
+<div class="form-group">
+    <label class="col-sm-3 control-label no-padding-right" >  </label>
+    <div class="col-sm-9">               
+    <div >
+        
+        <img src="<?php echo URL::to('/'); ?>/<?php echo $product->image1; ?>" width="200px" height="200px" alt="form product image"></div>
+    </div>  
+</div>
+  <?php } ?>  
+<div class="form-group">
+    <label class="col-sm-3 control-label no-padding-right" > File </label>
+
+    <div class="col-sm-9">
+         <?php if(isset($product)){?>
+         {{ Form::file('image2',array('class' => 'col-xs-10 col-sm-5','id' => 'fileupload')) }}
+        <?php }else{ ?>  
+        {{ Form::file('image2',array('class' => 'col-xs-10 col-sm-5 required','id' => 'fileupload')) }}
+        <?php } ?>  
+    </div>
+  
+</div>
+<?php if(isset($product)){?>
+<div class="form-group">
+    <label class="col-sm-3 control-label no-padding-right" >  </label>
+    <div class="col-sm-9">               
+    <div >
+        
+        <img src="<?php echo URL::to('/'); ?>/<?php echo $product->image2; ?>" width="200px" height="200px" alt="form product image"></div>
+    </div>  
+</div>
+  <?php } ?>  
+<div class="form-group">
+    <label class="col-sm-3 control-label no-padding-right" > File </label>
+
+    <div class="col-sm-9">
+         <?php if(isset($product)){?>
+         {{ Form::file('image3',array('class' => 'col-xs-10 col-sm-5','id' => 'fileupload')) }}
+        <?php }else{ ?>  
+        {{ Form::file('image3',array('class' => 'col-xs-10 col-sm-5 required','id' => 'fileupload')) }}
+        <?php } ?>  
+    </div>
+  
+</div>
+<?php if(isset($product)){?>
+<div class="form-group">
+    <label class="col-sm-3 control-label no-padding-right" >  </label>
+    <div class="col-sm-9">               
+    <div >
+        
+        <img src="<?php echo URL::to('/'); ?>/<?php echo $product->image3; ?>" width="200px" height="200px" alt="form product image"></div>
+    </div>  
+</div>
+  <?php } ?>  
+{{ Form::hidden('featured',0,array('class' => 'col-xs-10 col-sm-5')) }}
+
 <div style="clear: both;"></div>
 <div class="clearfix form-actions">
     <div class="col-md-offset-3 col-md-9">

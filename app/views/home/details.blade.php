@@ -4,15 +4,17 @@
     <div style="width:30%; float: left;">
         <div class="zoom-section">    	  
             <div class="zoom-small-image">
-                <a href='#' class = 'cloud-zoom' id='zoom1' rel="adjustX:10, adjustY:-4"><img src="<?php echo URL::to('/'); ?>/images/images/smallimage.jpg" alt='' title="Optional title display" /></a></div>
+                <a href='#' class = 'cloud-zoom' id='zoom1' rel="adjustX:10, adjustY:-4"><img src="<?php echo URL::to('/'); ?>/<?php echo $current_product->image; ?>" alt='' width="240" height="320" title="Optional title display" /></a></div>
             <div class="zoom-desc">
                 <h3></h3>       
-                <p><a href='#' class='cloud-zoom-gallery' title='Red' rel="useZoom: 'zoom1', smallImage: '<?php echo URL::to('/'); ?>/images/images/smallimage.jpg' "><img class="zoom-tiny-image" src="<?php echo URL::to('/'); ?>/images/images/tinyimage.jpg" alt = "Thumbnail 1"/></a>
-                    <a href='#' class='cloud-zoom-gallery' title='Red' rel="useZoom: 'zoom1', smallImage: '<?php echo URL::to('/'); ?>/images/images/smallimage.jpg' "><img class="zoom-tiny-image" src="<?php echo URL::to('/'); ?>/images/images/tinyimage.jpg" alt = "Thumbnail 1"/></a>
+                <p>
+                    <a href='#' class='cloud-zoom-gallery' title='Red' rel="useZoom: 'zoom1', smallImage: '<?php echo URL::to('/'); ?>/<?php echo $current_product->image; ?>' "><img class="zoom-tiny-image" src="<?php echo URL::to('/'); ?>/<?php echo $current_product->image; ?>" width="48" height="64" alt = "Thumbnail 1"/></a>
+                    <a href='#' class='cloud-zoom-gallery' title='Red' rel="useZoom: 'zoom1', smallImage: '<?php echo URL::to('/'); ?>/<?php echo $current_product->image1; ?>' "><img class="zoom-tiny-image" src="<?php echo URL::to('/'); ?>/<?php echo $current_product->image1; ?>" width="48" height="64" alt = "Thumbnail 1"/></a>
+                    <a href='#' class='cloud-zoom-gallery' title='Red' rel="useZoom: 'zoom1', smallImage: '<?php echo URL::to('/'); ?>/<?php echo $current_product->image2; ?>' "><img class="zoom-tiny-image" src="<?php echo URL::to('/'); ?>/<?php echo $current_product->image2; ?>" width="48" height="64" alt = "Thumbnail 1"/></a>
 
-<!--<a href='images/images/bigimage01.jpg' class='cloud-zoom-gallery' title='Blue' rel="useZoom: 'zoom1', smallImage: ' images/images/smallimage-1.jpg'"><img class="zoom-tiny-image" src="images/images/tinyimage-1.jpg" alt = "Thumbnail 2"/></a>-->                  
-                    <a href='#' class='cloud-zoom-gallery' title='Blue' rel="useZoom: 'zoom1', smallImage: '<?php echo URL::to('/'); ?>/images/images/smallimage-2.jpg' "><img class="zoom-tiny-image" src="<?php echo URL::to('/'); ?>/images/images/tinyimage-2.jpg" alt = "Thumbnail 3"/></a>
-                    <a href='#' class='cloud-zoom-gallery' title='Blue' rel="useZoom: 'zoom1', smallImage: '<?php echo URL::to('/'); ?>/images/images/smallimage-2.jpg' "><img class="zoom-tiny-image" src="<?php echo URL::to('/'); ?>/images/images/tinyimage-2.jpg" alt = "Thumbnail 3"/></a>
+
+                    <a href='#' class='cloud-zoom-gallery' title='Blue' rel="useZoom: 'zoom1', smallImage: '<?php echo URL::to('/'); ?>/<?php echo $current_product->image3; ?>' "><img class="zoom-tiny-image" src="<?php echo URL::to('/'); ?>/<?php echo $current_product->image3; ?>" width="48" height="64" alt = "Thumbnail 3"/></a>
+
                 </p>
 
             </div>
@@ -34,20 +36,21 @@
         </div>
         <p style="margin: 10px 0px; width: 100%">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' </p>
         <div>
-    <?php        if( null !== App::make('authenticator')->getLoggedUser()){
-//        print_r(App::make('authenticator')->getLoggedUser()->getLogin());
-   ?>
-            <a href="/cart/<?php echo $current_product->id; ?>"> <button name="add to card" type="button" class="paypal_btn"><i class="fa fa-shopping-cart"></i> Add to cart</button></a>
             <?php
-    }else{
-        ?>
-           
-            <a href="<?php echo URL::to('/'); ?>/login"> <button name="add to card" type="button" style="margin-left: 10px;" class="paypal_btn">Login </button></a>
-            <a href="<?php echo URL::to('/'); ?>/user/signup"> <button name="add to card" type="button" class="paypal_btn">Sign up </button></a>
-            <p style="font-weight: bold; margin: 10px;"> Sign up or Login before add to cart</p>
-        
-    <?php } ?>
-            
+            if (null !== App::make('authenticator')->getLoggedUser()) {
+//        print_r(App::make('authenticator')->getLoggedUser()->getLogin());
+                ?>
+                <a href="/cart/<?php echo $current_product->id; ?>"> <button name="add to card" type="button" class="paypal_btn"><i class="fa fa-shopping-cart"></i> Add to cart</button></a>
+                <?php
+            } else {
+                ?>
+
+                <a href="<?php echo URL::to('/'); ?>/login"> <button name="add to card" type="button" style="margin-left: 10px;" class="paypal_btn">Login </button></a>
+                <a href="<?php echo URL::to('/'); ?>/user/signup"> <button name="add to card" type="button" class="paypal_btn">Sign up </button></a>
+                <p style="font-weight: bold; margin: 10px;"> Sign up or Login before add to cart</p>
+
+            <?php } ?>
+
         </div>
 
     </div>
@@ -58,7 +61,7 @@
 <div style="width: 100%">
 
     @if(count($products))
-    <?php $count = 0; ?>
+<?php $count = 0; ?>
     @foreach($products as $product)
     <div class="item-box">
         <figure>
@@ -82,11 +85,11 @@
         <div class="item-box-text"> <span style="font-size:14px; color: #801d0a; margin-bottom: 10px;" >{{{ $product->title }}}</span></br> <p style="margin-top: 6px;">{{{ $product->subtitle }}}</p></div>
 
     </div>  
-    <?php $count = $count + 1; ?>
+        <?php $count = $count + 1; ?>
 
     @if($count == 3)
     <div style="margin-bottom: 20px; border-top: 2px solid #ede8dd; border-bottom: 2px solid #fff; width: 100%; height: 0px; float: left;"></div>
-    <?php $count = 0; ?>
+        <?php $count = 0; ?>
     @endif
     @endforeach
 

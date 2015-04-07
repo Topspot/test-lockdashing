@@ -24,6 +24,9 @@
                                                 <th>Stars</th>
                                                 <th>Price</th>
                                                 <th>Image</th>
+                                                <th>Image1</th>
+                                                <th>Image2</th>
+                                                <th>Image3</th>
                                                 <th>Brand</th>
                                                 <th>Category</th>
                                                 <th>Sub Category</th>
@@ -52,7 +55,10 @@
                                                 <td>{{{ $product->likes }}}</td>
                                                 <td>{{{ $product->star }}}</td>
                                                 <td>{{{ $product->price }}}</td>
-                                                <td><img src="<?php echo URL::to('/'); ?>/<?php echo $product->image; ?>" width="50px" height="50px" alt="product"></td>
+                                                <td><img src="<?php echo URL::to('/'); ?>/<?php echo $product->image; ?>" width="50px" height="50px" alt="no image"></td>
+                                                <td><img src="<?php echo URL::to('/'); ?>/<?php echo $product->image1; ?>" width="50px" height="50px" alt="no image"></td>
+                                                <td><img src="<?php echo URL::to('/'); ?>/<?php echo $product->image2; ?>" width="50px" height="50px" alt="no image"></td>
+                                                <td><img src="<?php echo URL::to('/'); ?>/<?php echo $product->image3; ?>" width="50px" height="50px" alt="no image"></td>
                                                 <?php $brand_data =Brand::find($product->brand_id); ?>
                                                 <td>{{{ $brand_data->name }}}</td>
                                                  <?php $categoy_data =Category::find($product->category_id); ?>

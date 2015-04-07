@@ -37,9 +37,6 @@
                         <a class="mult-icons" href="<?php echo URL::to('/'); ?>/login"><i class="fa fa-sign-in"></i></a>
                             <?php } ?>
                         <a class="mult-icons" href="<?php echo URL::to('/'); ?>/cart/0"><i class="fa fa-shopping-cart"></i></a>
-<!--                        <a class="mult-icons" href="#"><i class="fa fa-heart"></i></a>
-                        <a class="mult-icons" href="#"><i class="fa fa-star"></i></a>
-                        <a class="mult-icons" href="#"><i class="fa fa-comment"></i></a>-->
                         <div class="header-text"><span style="color: #b65d35"></span>
                             <?php
                             if (App::make('authenticator')->getLoggedUser()) {
@@ -58,26 +55,14 @@
                         <!-- Place somewhere in the <body> of your page -->
                         <div class="flexslider">
                             <ul class="slides">
+                                  <?php $sliders = Session::get('sliders') ?>
+                                  @if(count($sliders))
+                                  @foreach($sliders as $slider) 
                                 <li>
-                                    
-                                    {{ HTML::image('images/slide1.jpg', 'a picture', array()) }}
+                                    <img src="<?php echo URL::to('/')."/".$slider->image ?>" alt="Sliders image" >                                   
                                 </li>
-                                <li>
-                                    {{ HTML::image('images/sliderdenimshirt_24th.jpg', 'a picture', array()) }}
-                           
-                                </li>
-                                <li>
-                                    {{ HTML::image('images/slidermtees_24th.jpg', 'a picture', array()) }}
-                              
-                                </li>
-                                <li>
-                                    {{ HTML::image('images/slidertops_24th.jpg', 'a picture', array()) }}
-                             
-                                </li>
-                                <li>
-                                    {{ HTML::image('images/sliderwdresses_24th.jpg', 'a picture', array()) }}
-                              
-                                </li>
+                                @endforeach
+                                @endif
                             </ul>
                         </div>
                     </div>
@@ -85,17 +70,6 @@
             </div>
             <div class="main-header-dark">    
                 <div class="wall">
-<!--                    <div class="head-div">
-                         Here's all it takes to make this navigation bar. 
-                        <ul id="nav">
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">Men</a></li>
-                            <li><a href="#">Women</a></li>
-                            <li><a href="#">Brands</a></li>
-                            <li><a href="#">Cart</a></li>                          
-                        </ul>
-                         That's it! 
-                    </div>-->
                     <div class="head-div">
                     <nav id="primary_nav_wrap">
                         <ul>
@@ -112,17 +86,6 @@
                                     <li><a href="<?php echo URL::to('/'); ?>/getCategories?cat=2&sub=70&price=0">Wholesale Deals</a></li>
                                     <li><a href="<?php echo URL::to('/'); ?>/getCategories?cat=2&sub=71&price=0">Brands</a></li>
                                     <li><a href="<?php echo URL::to('/'); ?>/getCategories?cat=2&sub=65&price=0">Shirts</a>
-<!--                                        <ul>
-                                            <li><a href="#">Deep Menu 1</a>
-                                                <ul>
-                                                    <li><a href="#">Sub Deep 1</a></li>
-                                                    <li><a href="#">Sub Deep 2</a></li>
-                                                    <li><a href="#">Sub Deep 3</a></li>
-                                                    <li><a href="#">Sub Deep 4</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="#">Deep Menu 2</a></li>
-                                        </ul>-->
                                     </li>
                              
                                 </ul>
@@ -153,7 +116,7 @@
                     </nav>
 
 
- </div>
+                   </div>
                 </div>                    
             </div>  
             <div class="border-brown"></div>
@@ -165,7 +128,6 @@
                         <div class="top-featured">
                             <div class="feat-text">Featured Items</div>
                             <div class="feat-view"><a  style="color: #000;text-decoration: none;"href="<?php echo URL::to('/'); ?>/featureditem">view all items</div></div>
-                            <!--<div class="top-brands"> Top selling</div>-->
                         </div>
                         <div class="featured-box">
                             <div>
@@ -192,14 +154,9 @@
                                     </ul>
                                     <div class="clearfix"></div>
 
-
-
                                 </div>
                                 <a id="next2" class="next" href="#">&gt;</a>
                             </div>
-
-
-
                         </div>
                     </div>
                 </div>                    
@@ -244,7 +201,19 @@
                             </div> </a>
                         <div class="categories-text">Promotions</div>
                         <div class="promotion-large">
-                            <a href=""> <img src="<?php echo URL::to('/'); ?>/images/monochic.jpg" alt="promotion pic" ></a>
+                             <div class="flexslider">
+                            <ul class="slides">
+                                  <<?php $promotions = Session::get('promotions') ?>
+                                        @if(count($promotions))
+                                        @foreach($promotions as $promotion)  
+                                <li>
+                                    <img src="<?php echo URL::to('/')."/".$promotion->image ?>" alt="Promotion image" >                                   
+                                </li>
+                                @endforeach
+                                @endif
+                            </ul>
+                        </div>
+                            <!--<a href=""> <img src="<?php echo URL::to('/'); ?>/images/monochic.jpg" alt="promotion pic" ></a>-->
                         </div>
                     </div><!--sidebar end-->
 
@@ -284,17 +253,11 @@
                             <input type="text" name="keyword" id="keyword">
                             @endif
                             @endif
-
-
-
                             <input type="submit" value="Search" class="btn-search">
                             {{ Form::close() }}
                         </div>
-
                         <div class="main-content-box">
                             @yield('content')
-
-
                         </div>
                     </div>
                     <div style="clear: both;"></div>

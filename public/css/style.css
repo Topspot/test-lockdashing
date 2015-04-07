@@ -394,6 +394,7 @@ background-color: #f7ebdd;
 }
 .promotion-large{
       width: 100%;
+      margin-bottom: 20px;
 /*    height: 231px;
     background-color: #871606;*/
 }
@@ -402,6 +403,15 @@ background-color: #f7ebdd;
     height: 80px;
     margin: 10px 0px;
     
+}
+.prod-price{
+    font-size: 14px;
+    font-weight: bold;
+}
+.cancel{
+    font-size: 14px;
+    text-decoration: none;
+    color: #000;
 }
 .hot-img1{
   background-color: #320809;

@@ -1,4 +1,15 @@
  jQuery(document).ready(function() {
+     
+     $('.quality').change(function(){
+         id=$(this).attr('id');
+        
+         price =$("#"+id).closest('td').next('td').data('price');
+         value=$("#"+id).val();
+         total=price * value;
+         $("#"+id).closest('td').next('td').html(total);
+//         console.log(value);html
+     });
+     
     $(function() {
             //	Scrolled by user interaction
             $('#foo2').carouFredSel({

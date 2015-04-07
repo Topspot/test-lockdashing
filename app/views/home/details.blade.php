@@ -74,7 +74,7 @@
                     <a href="#" class="option-price">${{{ $product->price }}}</a>
                     <a href="#" class="option-cart"><i class="fa fa-cart-plus"></i></a>
                     <a href="#"class="option-heart" data-bind="<?php echo $product->id; ?>"><i class="fa fa-heart"></i><div class="likes-no">{{{ $product->likes }}}</div></a>
-                    <a href="/details/<?php echo $product->id; ?>"class="option-detail">View Details</a>
+                    <a href="<?php echo URL::to('/'); ?>/details/<?php echo $product->id; ?>"class="option-detail">View Details</a>
 
                 </div>
             </figcaption>

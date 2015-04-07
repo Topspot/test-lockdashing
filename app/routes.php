@@ -33,7 +33,10 @@ Route::group(array('prefix' => 'admin'), function(){
  Route::get('subcategories/getSubCategoriesPopular/{id}', 'AdminSubCategoriesController@getSubCategoriesPopular');
  
  Route::resource('sliders', 'AdminSlidersController', array('except' => array('show')));   
-  Route::get('sliders/destroy/{id}', 'AdminSlidersController@destroy');
+ Route::get('sliders/destroy/{id}', 'AdminSlidersController@destroy');
+  
+ Route::resource('promotions', 'AdminPromotionsController', array('except' => array('show')));   
+ Route::get('promotions/destroy/{id}', 'AdminPromotionsController@destroy');
  });
 //Route::get('/', array('as' => 'home', 'uses' => 'ProductsController@getIndex'));
 Route::get('/', array('as' => 'home', 'uses' => 'HomeController@getIndex'));

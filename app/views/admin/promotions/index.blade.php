@@ -1,9 +1,9 @@
 @extends('laravel-authentication-acl::admin.layouts.base')
 
 @section('content')
-<h1>Slider Images</h1>
-{{ link_to_route('admin.sliders.create', 'Add new Slider Image',array(), array('class' => 'btn btn-inverse')) }}
-<button class="btn btn-danger" onclick="multipleDelete('sliders');"><i class="icon-trash bigger-130"></i> Multiple Delete</button>
+<h1>Promotion Images</h1>
+{{ link_to_route('admin.promotions.create', 'Add new Promotion Image',array(), array('class' => 'btn btn-inverse')) }}
+<button class="btn btn-danger" onclick="multipleDelete('promotions');"><i class="icon-trash bigger-130"></i> Multiple Delete</button>
 <div class="row">
         <div class="col-xs-12">
                 <div class="table-responsive">
@@ -22,9 +22,9 @@
                                 </thead>
 
                                 <tbody class="product-table">
-                                    @if(count($sliders))
-                                     @foreach($sliders as $slider)
-                                        <tr data-id="<?php echo $slider->id ?>">
+                                    @if(count($promotions))
+                                     @foreach($promotions as $promotion)
+                                        <tr data-id="<?php echo $promotion->id ?>">
                                                 <td class="center">
                                                         <label>
                                                                 <input type="checkbox" class="ace checkbox1" />
@@ -33,17 +33,17 @@
                                                 </td>
                                                 <td>
 
-                                                       <img src="<?php echo URL::to('/'); ?>/<?php echo $slider->image; ?>" width="300px" height="200px" alt="brand image">
+                                                       <img src="<?php echo URL::to('/'); ?>/<?php echo $promotion->image; ?>" width="300px" height="300px" alt="brand image">
                                                 </td>
 
                                                 <td>
                                                         <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
                                                                 
-                                                                <a class="green" href="<?php echo URL::to('/'); ?>/admin/sliders/<?php echo $slider->id ?>/edit">
+                                                                <a class="green" href="<?php echo URL::to('/'); ?>/admin/promotions/<?php echo $promotion->id ?>/edit">
                                                                         <i class="icon-pencil bigger-130"></i>
                                                                 </a>
 
-                                                                <a class="red" href="#" onclick="openModal('sliders','<?php echo $slider->id; ?>','Slider image');">
+                                                                <a class="red" href="#" onclick="openModal('promotions','<?php echo $promotion->id; ?>','Promotions image');">
                                                                         <i class="icon-trash bigger-130"></i>
                                                                 </a>
                                                         </div>
